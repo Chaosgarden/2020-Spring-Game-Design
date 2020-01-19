@@ -157,7 +157,7 @@ MonoBehaviour:
   speed: 12
   gravity: -9.81
   dashdistance: 3
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 1709492350}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
@@ -1446,6 +1446,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499393943}
   m_CullTransparentMesh: 0
+--- !u!4 &1709492350 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 249411463341065613, guid: 8182d6c79d384dc4db2e36d1b93839e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1030167648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2005551419
 GameObject:
   m_ObjectHideFlags: 0
