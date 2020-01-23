@@ -6,8 +6,8 @@ public class Cactus : MonoBehaviour, IEnemy
 {
     //enemy prototype
     public float maxHealth = 10;
-    public float attack;
-    public float defense;
+    public float attack =1;
+    public float defense =1;
     private float currentHealth;
 
     void Start()
