@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -8,6 +6,10 @@ public class EnemyController : MonoBehaviour
     public int hp = 20;
     public int damage = 5;
     public PlayerStat playerStat;
+    int MoveSpeed = 1;
+    int MaxDist = 10;
+    int MinDist = 1;
+    public Transform Player;
     void Start()
     {
         playerStat = GameObject.Find("Player").GetComponent<PlayerStat>();
@@ -16,6 +18,16 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.LookAt(Player);
+        if (Vector3.Distance(transform.position, Player.position) >= MinDist)
+        {
+            transform.LookAt(Player);
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+            if (Vector3.Distance(transform.position, Player.position) <= MaxDist)
+            {
+               
+            }
+        }
         if (hp <= 0)
         {
             Destroy(this.gameObject);
