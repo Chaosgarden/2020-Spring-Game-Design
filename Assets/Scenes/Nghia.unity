@@ -120,48 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &93626189 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 249411464848242788, guid: 8182d6c79d384dc4db2e36d1b93839e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1030167648}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &93626190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93626189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfc4a378a3622bd4889dced2145e0b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 100
-  damage: 10
-  speed: 12
---- !u!114 &93626191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 93626189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c239d90d487b2344cb7900039e1ba4f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  speed: 12
-  gravity: -9.81
-  dashdistance: 3
-  groundCheck: {fileID: 1709492350}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  groundDistance: 0.4
 --- !u!1 &321868619
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +290,7 @@ PrefabInstance:
     - target: {fileID: 4095168328056437898, guid: 90333439600300e4b8f1b4d3bf3d28a0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4095168328056437898, guid: 90333439600300e4b8f1b4d3bf3d28a0,
         type: 3}
@@ -510,7 +468,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 93626190}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateDamage
         m_Mode: 3
         m_Arguments:
@@ -639,7 +597,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 93626190}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateSpeed
         m_Mode: 3
         m_Arguments:
@@ -768,7 +726,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 93626190}
+      - m_Target: {fileID: 0}
         m_MethodName: UpdateHp
         m_Mode: 3
         m_Arguments:
@@ -904,7 +862,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &964066266
 GameObject:
@@ -1347,7 +1305,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412635074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 365.4, y: 2.14, z: 661.71}
+  m_LocalPosition: {x: 486.7, y: 2.14, z: 529.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 964066267}
@@ -1368,7 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   damage: 5
-  playerStat: {fileID: 93626190}
+  playerStat: {fileID: 0}
 --- !u!1 &1499393943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1446,13 +1404,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499393943}
   m_CullTransparentMesh: 0
---- !u!4 &1709492350 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 249411463341065613, guid: 8182d6c79d384dc4db2e36d1b93839e8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1030167648}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2005551419
+--- !u!1 &1969833040
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1460,59 +1412,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2005551422}
-  - component: {fileID: 2005551421}
-  - component: {fileID: 2005551420}
+  - component: {fileID: 1969833042}
+  - component: {fileID: 1969833041}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: SpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2005551420
+--- !u!114 &1969833041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005551419}
+  m_GameObject: {fileID: 1969833040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01c4a27fe63fb704cb7da58701e8f8ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
---- !u!114 &2005551421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005551419}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
---- !u!4 &2005551422
+  monsters:
+  - {fileID: 7636567123095945790, guid: a74883fdf94cbee4b9017975214829d6, type: 3}
+  - {fileID: 8193343300385937727, guid: 32f8cd27b5dedaa4dab58e1dfa751d69, type: 3}
+--- !u!4 &1969833042
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005551419}
+  m_GameObject: {fileID: 1969833040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 343.8643, y: -25.987324, z: 649.11444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
