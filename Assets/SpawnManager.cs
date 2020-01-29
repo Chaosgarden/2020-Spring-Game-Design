@@ -16,12 +16,15 @@ public class SpawnManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SpawnMonster(1);
+            SpawnMonster(1,20);
         }
     }
-    void SpawnMonster(int level)
+    void SpawnMonster(int level,int number)
     {
-        Vector3 spawnPosition = new Vector3(Random.Range(300,460),1,Random.Range(530,720));
-        Instantiate(monsters[level - 1], spawnPosition, monsters[level - 1].transform.rotation);
+        for (int i = 0; i < number; i++)
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(300, 460), 1, Random.Range(530, 720));
+            Instantiate(monsters[level - 1], spawnPosition, monsters[level - 1].transform.rotation);
+        }
     }
 }
