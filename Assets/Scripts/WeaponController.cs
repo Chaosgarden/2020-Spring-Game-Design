@@ -24,11 +24,11 @@ public class WeaponController : MonoBehaviour
         //equiping the weapon on the playerHand and having it follow;
         if (EquippedWeapon == null)
         { 
-            /*EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapon/" + itemToEquip.ObjecSlug),
-                playerHand.transform.position, playerHand.transform.rotation, playerHand.transform);*/
+            EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapon/" + itemToEquip.ObjecSlug),
+                playerHand.transform.position, playerHand.transform.rotation, playerHand.transform);
             equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
             equippedWeapon.Stats = itemToEquip.Stats;
-            weapon.transform.SetParent(playerHand.transform);
+            EquippedWeapon.transform.SetParent(playerHand.transform);
             characterStats.AddStatBonus(itemToEquip.Stats);
         }
     }
