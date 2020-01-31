@@ -8,7 +8,7 @@ public class CharacterStats : MonoBehaviour
     public string healthName = "Vitality";
     public string healthDesc = "Your health";
 
-    public string attName = "Power";
+    public string attName = "Attack";
     public string attDesc = "Your Damage";
 
     public string speedName = "Dexterity";
@@ -29,15 +29,15 @@ public class CharacterStats : MonoBehaviour
         Debug.Log(stats.Find(x => x.StatType == stat));
         stats.Find(x => x.StatType == stat);
         
-        return null;
+        return stats.Find(x => x.StatType == stat);
     }
 
     public void AddStatBonus(List<BaseStat> statBonuses)
     {
         foreach (BaseStat statBonus in statBonuses)
         {
-            Debug.Log(stats);
-            stats.Find(x=> x.StatName == statBonus.StatName)
+            Debug.Log(stats[1].StatType);
+            stats.Find(x=> x.StatType == statBonus.StatType)
                 .AddStatBonus(new StatBonus(statBonus.BaseValue));
         }
     }

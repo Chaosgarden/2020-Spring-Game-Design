@@ -10,11 +10,11 @@ public class WeaponController : MonoBehaviour
     public CharacterStats characterStats;
     void Start()
     {
-        characterStats = GetComponent<CharacterStats>();
+        //GetComponent<CharacterStats>();
     }
     public void EquipWeapon(Item itemToEquip)
-    {     
-        
+    {
+        characterStats = new CharacterStats(10, 10, 10);
         EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Collections/" + itemToEquip.ObjectSlug),
             playerHand.transform.position, playerHand.transform.rotation);
             
@@ -29,6 +29,7 @@ public class WeaponController : MonoBehaviour
     public void PerformWeaponAttack()
     {
         equippedWeapon.PerformAttack(CalculateDamage());
+        Debug.Log("AAAA");
     }
     private int CalculateDamage()
     {

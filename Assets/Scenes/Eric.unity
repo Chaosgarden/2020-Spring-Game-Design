@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHand: {fileID: 2089610825}
-  characterStats: {fileID: 3400709919525722685}
+  characterStats: {fileID: 0}
 --- !u!114 &3400709919525722685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,10 +942,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthName: Health
   healthDesc: Your health
-  attName: 
-  attDesc: 
-  speedName: 
-  speedDesc: 
+  attName: ee
+  attDesc: ee
+  speedName: eee
+  speedDesc: eee
   level: 5
 --- !u!114 &3400709919525722686
 MonoBehaviour:

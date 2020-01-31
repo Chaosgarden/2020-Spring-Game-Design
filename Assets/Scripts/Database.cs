@@ -31,7 +31,6 @@ public class Database : MonoBehaviour
                     + Items[0].Stats[0].StatName 
                     + " level is" 
                     + Items[0].Stats[0].GetCalculatedStatValue());
-        
     }
     public Item GetItem(string itemSlug)
     {
