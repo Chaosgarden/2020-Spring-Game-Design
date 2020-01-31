@@ -14,13 +14,17 @@ public class Sword : MonoBehaviour, IWeapon
     }
     public void PerformAttack(int damage)
     {
+        Debug.Log("Attacking with Weapon");
         CurrentDamage = damage;
         animator.SetTrigger("Base_Attack");
     }
     void OnTriggerEnter(Collider col)
     {
-        if(col.tag == "Enemy")
+        Debug.Log(col);
+        col.GetComponent<IEnemy>().TakeDamage(CurrentDamage);
+        if (col.tag == "Enemy")
         {
+            Debug.Log("EnemyTaking Damage");
             col.GetComponent<IEnemy>().TakeDamage(CurrentDamage);
         }
     }

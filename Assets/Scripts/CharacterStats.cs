@@ -24,11 +24,7 @@ public class CharacterStats : MonoBehaviour
         };      
     }
     public BaseStat GetStat(BaseStat.BaseStatType stat)
-    {
-        Debug.Log(stats);
-        Debug.Log(stats.Find(x => x.StatType == stat));
-        stats.Find(x => x.StatType == stat);
-        
+    {  
         return stats.Find(x => x.StatType == stat);
     }
 
@@ -36,7 +32,6 @@ public class CharacterStats : MonoBehaviour
     {
         foreach (BaseStat statBonus in statBonuses)
         {
-            Debug.Log(stats[1].StatType);
             stats.Find(x=> x.StatType == statBonus.StatType)
                 .AddStatBonus(new StatBonus(statBonus.BaseValue));
         }

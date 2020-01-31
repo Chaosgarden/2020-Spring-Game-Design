@@ -11,15 +11,10 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        //PlayerLevel = GetComponent<PlayerLevel>();
+        characterStats = GetComponent<CharacterStats>();
         Debug.Log("character");
         this.currentHealth = this.maxHealth;
     }
-    public void Inits()
-    {
-        characterStats = new CharacterStats(10, 10, 10);
-    }
-
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;

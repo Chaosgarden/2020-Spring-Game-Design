@@ -6,8 +6,6 @@ public class Item
 {
 
     //finding the names of the items
-    
-
     public List<BaseStat> Stats { get; set; }
     public string ObjectSlug { get; set; }
     public string ItemName { get; set; }

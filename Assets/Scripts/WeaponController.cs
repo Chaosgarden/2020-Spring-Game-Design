@@ -10,7 +10,7 @@ public class WeaponController : MonoBehaviour
     public CharacterStats characterStats;
     void Start()
     {
-        //GetComponent<CharacterStats>();
+        //characterStats = GetComponent<CharacterStats>();
     }
     public void EquipWeapon(Item itemToEquip)
     {
@@ -21,18 +21,16 @@ public class WeaponController : MonoBehaviour
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
         EquippedWeapon.transform.SetParent(playerHand.transform);
         equippedWeapon.Stats = itemToEquip.Stats;
-        Debug.Log(itemToEquip);
-        Debug.Log(characterStats);
         characterStats.AddStatBonus(itemToEquip.Stats);
+        Debug.Log("Equipping :" + EquippedWeapon);
     }
   
     public void PerformWeaponAttack()
     {
         equippedWeapon.PerformAttack(CalculateDamage());
-        Debug.Log("AAAA");
     }
     private int CalculateDamage()
-    {
+    {        
         int damageToDeal = (characterStats.GetStat(BaseStat.BaseStatType.Attack).GetCalculatedStatValue() * 2)
             + Random.Range(2, 8);
         Debug.Log("Damage dealt: " + damageToDeal);

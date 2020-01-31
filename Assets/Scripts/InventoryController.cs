@@ -8,9 +8,10 @@ public class InventoryController : MonoBehaviour
     WeaponController playerWeaponController;
     public Item sword;
     public List<Item> playerItem = new List<Item>();
+    public Player player;
     // Start is called before the first frame update
     void Start()
-    {
+    {     
         playerWeaponController = GetComponent<WeaponController>();
         GiveItem("sword");
     }

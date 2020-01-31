@@ -19,7 +19,7 @@ public class Database : MonoBehaviour
         */
             Instance = this;
             BuildDatabase();
-            Debug.Log("Started");    
+            Debug.Log("Database initialized");    
         //}
     }
 
@@ -27,14 +27,14 @@ public class Database : MonoBehaviour
     {
         
         Items = JsonConvert.DeserializeObject<List<Item>>(Resources.Load<TextAsset>("Collections/Weapons/Weapons").ToString());
-        Debug.Log(Items[0].ItemName
+        /*bug.Log(Items[0].ItemName
                     + Items[0].Stats[0].StatName 
                     + " level is" 
                     + Items[0].Stats[0].GetCalculatedStatValue());
+        */
     }
     public Item GetItem(string itemSlug)
     {
-        Debug.Log(itemSlug);
         //comparing the slug from the item to find the correct one
         foreach(Item item in Items)
         {
