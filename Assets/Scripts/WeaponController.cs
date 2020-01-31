@@ -6,35 +6,36 @@ public class WeaponController : MonoBehaviour
 {
     public GameObject playerHand;
     public GameObject EquippedWeapon { get; set; }
-    CharacterStats characterStats;
     IWeapon equippedWeapon;
+    public CharacterStats characterStats;
     void Start()
     {
         characterStats = GetComponent<CharacterStats>();
     }
     public void EquipWeapon(Item itemToEquip)
-    {
-        /*deleting equiped weapon 
-         if (EquippedWeapon != null)
-         {
-            characterStats.RemoveStatBonus(EquippedWeapon.GetComponent<IWeapon>().Stats);
-            Destroy(playerHand.transform.GetChild(0).gameObject);
-         }   
-        */
-        //equiping the weapon on the playerHand and having it follow;
-        if (EquippedWeapon == null)
-        { 
-            EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapon/" + itemToEquip.ObjecSlug),
-                playerHand.transform.position, playerHand.transform.rotation, playerHand.transform);
-            equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
-            equippedWeapon.Stats = itemToEquip.Stats;
-            EquippedWeapon.transform.SetParent(playerHand.transform);
-            characterStats.AddStatBonus(itemToEquip.Stats);
-        }
+    {     
+        
+        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Collections/" + itemToEquip.ObjectSlug),
+            playerHand.transform.position, playerHand.transform.rotation);
+            
+        equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
+        EquippedWeapon.transform.SetParent(playerHand.transform);
+        equippedWeapon.Stats = itemToEquip.Stats;
+        Debug.Log(itemToEquip);
+        Debug.Log(characterStats);
+        characterStats.AddStatBonus(itemToEquip.Stats);
     }
+  
     public void PerformWeaponAttack()
     {
-            equippedWeapon.PerformAttack();    
+        equippedWeapon.PerformAttack(CalculateDamage());
+    }
+    private int CalculateDamage()
+    {
+        int damageToDeal = (characterStats.GetStat(BaseStat.BaseStatType.Attack).GetCalculatedStatValue() * 2)
+            + Random.Range(2, 8);
+        Debug.Log("Damage dealt: " + damageToDeal);
+        return damageToDeal;
     }
     void Update()
     {

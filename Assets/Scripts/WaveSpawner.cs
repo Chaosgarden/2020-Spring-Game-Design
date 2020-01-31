@@ -7,15 +7,15 @@ public class WaveSpawner : MonoBehaviour
 
     public static int EnemiesAlive = 0;
 
-    public Transform enemyPrefab;
-    //public Wave[] waves;
+    public Wave[] waves;
 
-    public float timeBetweenWaves = 0.5f;
-    private float countdown = 0.5f;
+    public Transform spawnPoint;
+
+    public float timeBetweenWaves = 5f;
+    private float countdown = 2f;
 
     public Text waveCountdownText;
-
-    //public GameManager gameManager;
+    public GameManager gameManager;
 
     private int waveIndex = 0;
 
@@ -26,12 +26,12 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-      /*  if (waveIndex == waves.Length)
+        if (waveIndex == waves.Length)
         {
             gameManager.WinLevel();
             this.enabled = false;
         }
-        */
+
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
@@ -40,31 +40,40 @@ public class WaveSpawner : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
+
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-        waveCountdownText.text = string.Format("{0:00.00}", countdown);
+
+        //waveCountdownText.text = string.Format("{0:00.00}", countdown);
     }
 
     IEnumerator SpawnWave()
     {
-       /* PlayerStats.Rounds++;
+        
 
         Wave wave = waves[waveIndex];
 
         EnemiesAlive = wave.count;
-        */
-        for (int i = 0; i < waveIndex; i++)
+
+        for (int i = 0; i < wave.count; i++)
         {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
         }
 
         waveIndex++;
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(GameObject enemy)
     {
-        Vector3 spawnPosition = new Vector3(Random.Range(300, 460), 1, Random.Range(530, 720));
-        Instantiate(enemyPrefab, spawnPosition, enemyPrefab.rotation);
+        if (spawnPoint != null)
+        {
+            Instantiate(enemy, spawnPoint.position, enemy.transform.rotation);
+        }
+        else
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(300, 460), 1, Random.Range(530, 720));
+            Instantiate(enemy, spawnPosition, enemy.transform.rotation);
+        }
     }
 
 }

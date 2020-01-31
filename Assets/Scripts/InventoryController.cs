@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    public WeaponController playerWeaponController;
+ 
+    WeaponController playerWeaponController;
     public Item sword;
+    public List<Item> playerItem = new List<Item>();
     // Start is called before the first frame update
     void Start()
     {
-        //creation of the weapons
         playerWeaponController = GetComponent<WeaponController>();
-        List<BaseStat> swordStats = new List<BaseStat>();
-        swordStats.Add(new BaseStat(1, "Damage", "Your Damage"));
-        sword = new Item(swordStats, "sword");
-        playerWeaponController.EquipWeapon(sword);
+        GiveItem("sword");
     }
 
-    // Update is called once per frame
+    public void GiveItem(string itemSlug)
+    {   
+        sword = Database.Instance.GetItem(itemSlug);
+        playerItem.Add(sword);
+        EquipItem(sword);
+        
+    }
+    public void EquipItem(Item itemToEquip)
+    {
+        playerWeaponController.EquipWeapon(itemToEquip);
+    }
     void Update()
     {
 

@@ -7,19 +7,21 @@ public class Sword : MonoBehaviour, IWeapon
     //Sword prototype
     private Animator animator;
     public List<BaseStat> Stats { get; set; }
+    public int CurrentDamage { get; set; }
     void Start()
     {
         animator = GetComponent<Animator>();
     }
-    public void PerformAttack()
+    public void PerformAttack(int damage)
     {
+        CurrentDamage = damage;
         animator.SetTrigger("Base_Attack");
     }
     void OnTriggerEnter(Collider col)
     {
         if(col.tag == "Enemy")
         {
-            col.GetComponent<IEnemy>().TakeDamage(Stats[0].GetCalculatedStatValue());
+            col.GetComponent<IEnemy>().TakeDamage(CurrentDamage);
         }
     }
 }

@@ -6,5 +6,6 @@ public interface IWeapon
 {
     //interface for Weapon
     List<BaseStat> Stats { get; set; }
-    void PerformAttack();
+    int CurrentDamage { get; set; }
+    void PerformAttack(int damage);
 }
