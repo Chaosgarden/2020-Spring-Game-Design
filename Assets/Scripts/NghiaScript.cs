@@ -8,7 +8,8 @@ public class NghiaScript : MonoBehaviour
     // Start is called before the first frame update
     public NavMeshAgent agent;
     public GameObject player;
-    float attackRange = 5f;
+    float attackRange = 2f;
+    IEnemy cactus;
     void Start()
     {
         player = GameObject.Find("Player");
@@ -20,7 +21,7 @@ public class NghiaScript : MonoBehaviour
         
         if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
         {
-            
+            FindObjectOfType<Cactus>().PerformAttack();
         }
 
         else {

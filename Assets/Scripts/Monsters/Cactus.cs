@@ -5,26 +5,26 @@ using UnityEngine.AI;
 
 public class Cactus : MonoBehaviour, IEnemy
 {
-    //enemy prototype
     private int currentHealth = 20;
     private int attack = 5;
     private int maxHealth;
     public NavMeshAgent agent;
-    //public GameObject player;
-    void Start()
+    public GameObject player;
+    public Player playerVar;
+    void Awake()
     {
         currentHealth = maxHealth;
+        player = GameObject.Find("Player");
+        playerVar = player.GetComponent<Player>();
         //player = GameObject.Find("Player");
     }
 
     public void PerformAttack()
     {
-
+        playerVar.TakeDamage(5);
     }
-
     public void TakeDamage(int amount)
-    {
-        Debug.Log("Pieeeee");
+    {     
         currentHealth -= amount;
         if (currentHealth <= 0)
         {

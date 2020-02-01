@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player dead. Reset health.");
+        Destroy(gameObject);
         this.currentHealth = this.maxHealth;
     }
 }

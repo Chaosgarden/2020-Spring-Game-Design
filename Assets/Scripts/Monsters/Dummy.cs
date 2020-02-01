@@ -9,7 +9,7 @@ public class Dummy : MonoBehaviour ,IEnemy
     public float attack =2 ;
     public float defense =2;
     private float currentHealth;
-
+    public Player player;
     void Start()
     {
         currentHealth = maxHealth;
@@ -22,7 +22,7 @@ public class Dummy : MonoBehaviour ,IEnemy
     }
     public void PerformAttack()
     {
-        throw new System.NotImplementedException();
+        player.TakeDamage(5);
     }
 
     public void TakeDamage(int amount)

@@ -21,14 +21,13 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if (EnemiesAlive > 0)
+        Debug.Log(waves.Length);
+        if (waveIndex == 0)
         {
-            return;
+            
         }
-
         if (waveIndex == waves.Length)
         {
-            gameManager.WinLevel();
             this.enabled = false;
         }
 
@@ -43,13 +42,11 @@ public class WaveSpawner : MonoBehaviour
 
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        //waveCountdownText.text = string.Format("{0:00.00}", countdown);
+       // Debug.Log(string.Format("{0:00.00}", countdown));
     }
 
     IEnumerator SpawnWave()
     {
-        
-
         Wave wave = waves[waveIndex];
 
         EnemiesAlive = wave.count;
@@ -57,9 +54,8 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < wave.count; i++)
         {
             SpawnEnemy(wave.enemy);
-            yield return new WaitForSeconds(1f / wave.rate);
+            yield return new WaitForSeconds(1f);
         }
-
         waveIndex++;
     }
 
