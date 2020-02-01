@@ -42,5 +42,15 @@ public class PlayerMovement : MonoBehaviour
         //jumping gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        HandleRotationInput();
+    }
+    void HandleRotationInput()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+        }
     }
 }
