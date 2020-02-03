@@ -12,16 +12,16 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
-    
+
     Vector3 velocity;
     Vector3 move;
     bool isGrounded;
     void Update()
     {
-       
+
         //checking state and applying corresponding variables
-        isGrounded = Physics.CheckSphere(groundCheck.position, 
-                                         groundDistance, 
+        isGrounded = Physics.CheckSphere(groundCheck.position,
+                                         groundDistance,
                                          groundMask
                                          );
         if (isGrounded && velocity.y < 0)
@@ -29,7 +29,8 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = -2f;
         }
         //movement for the character
-        float x = Input.GetAxis("Horizontal");
+
+        /*float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
         move = transform.right * x + transform.forward * z;
@@ -40,9 +41,19 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("spacebar jump?");
         }
         //jumping gravity
+        */
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        
+        HandleMovementInput();
         HandleRotationInput();
+    }
+    void HandleMovementInput()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+        transform.Translate(movement * speed * Time.deltaTime, Space.World);
     }
     void HandleRotationInput()
     {
