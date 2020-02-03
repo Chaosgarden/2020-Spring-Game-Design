@@ -37,7 +37,7 @@ public class Cactus : MonoBehaviour, IEnemy
     }
     void FixedUpdate()
     {
-        /*
+       
         if (Vector3.Distance(transform.position, player.transform.position) < 2)
         {
             PerformAttack();
@@ -46,6 +46,6 @@ public class Cactus : MonoBehaviour, IEnemy
         {
             agent.SetDestination(player.transform.position);
         }
-        */
+       
     }
 }
