@@ -122,7 +122,6 @@ GameObject:
   - component: {fileID: 7150249446559181671}
   - component: {fileID: 7150249446559181664}
   - component: {fileID: 7150249446559181675}
-  - component: {fileID: 7150249446559181674}
   - component: {fileID: 6938329583747477424}
   m_Layer: 0
   m_Name: Peanuts
@@ -237,21 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284781e5baa18f7439f9bf3f5e6622f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
---- !u!114 &7150249446559181674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7150249446559181665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00c52245eb3d285459d59388a237da72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   agent: {fileID: 6938329583747477424}
-  player: {fileID: 0}
 --- !u!195 &6938329583747477424
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -262,10 +247,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 10
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

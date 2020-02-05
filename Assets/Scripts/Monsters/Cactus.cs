@@ -9,8 +9,8 @@ public class Cactus : MonoBehaviour, IEnemy
     private int attack = 5;
     private int maxHealth;
     public NavMeshAgent agent;
-    public GameObject player;
-    public Player playerVar;
+    GameObject player;
+    Player playerVar;
     void Awake()
     {
         currentHealth = maxHealth;
@@ -35,10 +35,10 @@ public class Cactus : MonoBehaviour, IEnemy
     {
         Destroy(gameObject);
     }
-    void FixedUpdate()
+    void Update()
     {
        
-        if (Vector3.Distance(transform.position, player.transform.position) < 2)
+        if (Vector3.Distance(transform.position, player.transform.position) < 2.3f)
         {
             PerformAttack();
         }
