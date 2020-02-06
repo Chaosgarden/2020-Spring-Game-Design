@@ -5,10 +5,11 @@ using UnityEngine.AI;
 
 public class Cactus : MonoBehaviour, IEnemy
 {
-    private int currentHealth = 20;
-    private int attack = 5;
-    private int maxHealth;
+    public float currentHealth;
+    public float maxHealth;
     public NavMeshAgent agent;
+    private CharacterStats characterStats;
+    //private Player player;
     GameObject player;
     Player playerVar;
     void Awake()

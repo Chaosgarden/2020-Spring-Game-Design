@@ -27,7 +27,7 @@ public class CharacterPanel : MonoBehaviour
     void UpdateHealth(int currentHealth, int maxHealth)
     {
         this.health.text = currentHealth.ToString();
-        this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
+        //this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
     }
 
     void UpdateLevel()

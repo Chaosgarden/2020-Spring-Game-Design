@@ -118,6 +118,7 @@
     <Compile Include="Assets\Scripts\Item.cs" />
     <Compile Include="Assets\Scripts\IWeapon.cs" />
     <Compile Include="Assets\Scripts\KnightController.cs" />
+    <Compile Include="Assets\Scripts\LifeTracker.cs" />
     <Compile Include="Assets\Scripts\Monsters\Cactus.cs" />
     <Compile Include="Assets\Scripts\Monsters\Dummy.cs" />
     <Compile Include="Assets\Scripts\NghiaScript.cs" />
