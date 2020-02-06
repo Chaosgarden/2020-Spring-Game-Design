@@ -10,14 +10,12 @@ public class WeaponController : MonoBehaviour
     public CharacterStats characterStats;
     void Start()
     {
-        //characterStats = GetComponent<CharacterStats>();
+        characterStats = GetComponent<Player>().characterStats;
     }
     public void EquipWeapon(Item itemToEquip)
-    {
-        characterStats = new CharacterStats(10, 10, 10);
-        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Collections/" + itemToEquip.ObjectSlug),
+    {     
+        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapons/" + itemToEquip.ObjectSlug),
             playerHand.transform.position, playerHand.transform.rotation);
-            
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
         EquippedWeapon.transform.SetParent(playerHand.transform);
         equippedWeapon.Stats = itemToEquip.Stats;
@@ -31,7 +29,7 @@ public class WeaponController : MonoBehaviour
     }
     private int CalculateDamage()
     {        
-        int damageToDeal = (characterStats.GetStat(BaseStat.BaseStatType.Attack).GetCalculatedStatValue() * 2)
+        int damageToDeal = (characterStats.GetStat(BaseStat.BaseStatType.Power).GetCalculatedStatValue())
             + Random.Range(2, 8);
         Debug.Log("Damage dealt: " + damageToDeal);
         return damageToDeal;

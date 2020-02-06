@@ -1,29 +1,27 @@
 ﻿[
 	{
-		"objectSlug" : "sword",
-		"itemName" : "Sword",
-		"ItemType" : "Weapon",
-		"description" : "A regular blade.",
-		"stats" : 
-		[
-			{
-				"StatType" : "Attack",
-				"baseValue" : 1,
-				"statName" : "Attack",
-				"statDesc" : "Poof"
-			},
-			{
-				"StatType" : "Dexterity",
-				"baseValue" : 1,
-				"statName" : "Attack",
-				"statDesc" : "Poof"
-			},
-			{
-				"StatType" : "Health",
-				"baseValue" : 1,
-				"statName" : "Attack",
-				"statDesc" : "Poof"
-			}
-		]
-	}
+    "objectSlug": "sword",
+    "itemName": "Sword",
+    "description": "A long, sharp blade.",
+    "itemType": "Weapon",
+    "actionName": "Equip",
+    "itemModifier": 0,
+    "Stats": [
+      {
+        "StatType": "Power",
+        "BaseValue": 25,
+        "StatName": "Power"
+      },
+      {
+        "StatType": "Toughness",
+        "BaseValue": 4,
+        "StatName": "Tougness"
+      },
+      {
+        "StatType": "AttackSpeed",
+        "BaseValue": 4,
+        "StatName": "Atk Spd"
+      }
+    ]
+  }
 ]

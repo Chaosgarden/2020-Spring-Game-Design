@@ -9,18 +9,18 @@ public class Database : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        /*
+        
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-        */
+        
             Instance = this;
             BuildDatabase();
             Debug.Log("Database initialized");    
-        //}
+        }
     }
 
     private void BuildDatabase() 

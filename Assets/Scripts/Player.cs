@@ -7,25 +7,31 @@ public class Player : MonoBehaviour
     public CharacterStats characterStats;
     public int currentHealth;
     public int maxHealth;
+    public bool death = false;
     //public PlayerLevel PlayerLevel { get; set; }
 
-    void Start()
+    void Awake()
     {
-        characterStats = GetComponent<CharacterStats>();
-        Debug.Log("character");
         this.currentHealth = this.maxHealth;
+        characterStats = new CharacterStats(10, 10, 10);
+        UIManager.HealthChanged(this.currentHealth, this.maxHealth);
     }
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        UIManager.HealthChanged(this.currentHealth, this.maxHealth);
         if (currentHealth <= 0)
+        {
             Die();
+        }
     }
 
     private void Die()
     {
+        death = true;
         Debug.Log("Player dead. Reset health.");
-        Destroy(gameObject);
         this.currentHealth = this.maxHealth;
+        UIManager.HealthChanged(this.currentHealth, this.maxHealth);
+        Destroy(gameObject);
     }
 }

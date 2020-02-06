@@ -1,15 +1,17 @@
-﻿using System.Collections;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+
 public class BaseStat
 {
-    public enum BaseStatType { Health, Attack, Dexterity}
+    public enum BaseStatType { Power, Toughness, AttackSpeed }
+
+    public List<StatBonus> BaseAdditives { get; set; }
     [JsonConverter(typeof(StringEnumConverter))]
     public BaseStatType StatType { get; set; }
-    public List<StatBonus> BaseAdd { get; set; }
     public int BaseValue { get; set; }
     public string StatName { get; set; }
     public string StatDescription { get; set; }
@@ -17,32 +19,38 @@ public class BaseStat
 
     public BaseStat(int baseValue, string statName, string statDescription)
     {
-        this.BaseAdd = new List<StatBonus>();
+        this.BaseAdditives = new List<StatBonus>();
         this.BaseValue = baseValue;
         this.StatName = statName;
         this.StatDescription = statDescription;
     }
+
     [Newtonsoft.Json.JsonConstructor]
     public BaseStat(BaseStatType statType, int baseValue, string statName)
     {
-        this.BaseAdd = new List<StatBonus>();
+        this.BaseAdditives = new List<StatBonus>();
         this.StatType = statType;
         this.BaseValue = baseValue;
         this.StatName = statName;
     }
+
     public void AddStatBonus(StatBonus statBonus)
     {
-        this.BaseAdd.Add(statBonus);
+
+        this.BaseAdditives.Add(statBonus);
     }
+
     public void RemoveStatBonus(StatBonus statBonus)
     {
-        this.BaseAdd.Remove(BaseAdd.Find(x => x.BonusValue == statBonus.BonusValue));
+        this.BaseAdditives.Remove(BaseAdditives.Find(x => x.BonusValue == statBonus.BonusValue));
     }
+
     public int GetCalculatedStatValue()
     {
-        FinalValue = 0;
-        this.BaseAdd.ForEach(x => this.FinalValue += x.BonusValue);
-        FinalValue += BaseValue;
+        this.FinalValue = 0;
+        this.BaseAdditives.ForEach(x => this.FinalValue += x.BonusValue);
+        this.FinalValue += BaseValue;
         return FinalValue;
     }
+
 }

@@ -8,37 +8,36 @@ public class WaveSpawner : MonoBehaviour
     {
         SPAWNING,WAITING,COUNTING
     };
-
     public static int EnemiesAlive = 0;
-
+    public GameObject manager;
     public Wave[] waves;
 
     public Transform spawnPoint;
-
+    public bool cleared = false;
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
     public Text waveCountdownText;
-    
     public SpawnState state = SpawnState.COUNTING;
     private int waveIndex = 0;
+ 
 
     void Update()
     {
-        Debug.Log(waves.Length);
         if(state == SpawnState.WAITING)
         {
             if (!EnemyIsAlive())
             {
-                
+               
             }
             else
             {
                 return;
             }
         }
-        if (waveIndex == 0)
+        if (waveIndex == 2)
         {
+            cleared = true;
             
         }
         if (waveIndex == waves.Length)
