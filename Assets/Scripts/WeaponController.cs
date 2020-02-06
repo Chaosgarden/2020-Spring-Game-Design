@@ -15,9 +15,9 @@ public class WeaponController : MonoBehaviour
     public void EquipWeapon(Item itemToEquip)
     {
         characterStats = new CharacterStats(10, 10, 10);
-        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Collections/" + itemToEquip.ObjectSlug),
+        
+        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapons/" + itemToEquip.ObjectSlug),
             playerHand.transform.position, playerHand.transform.rotation);
-            
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
         EquippedWeapon.transform.SetParent(playerHand.transform);
         equippedWeapon.Stats = itemToEquip.Stats;

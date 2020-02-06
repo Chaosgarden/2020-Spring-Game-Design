@@ -20,7 +20,6 @@ public class Sword : MonoBehaviour, IWeapon
     }
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log(col);
         if (col.tag == "Enemy")
         {
             Debug.Log("EnemyTaking Damage");

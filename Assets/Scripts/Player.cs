@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public CharacterStats characterStats;
     public int currentHealth;
     public int maxHealth;
+    public bool death = false;
     //public PlayerLevel PlayerLevel { get; set; }
 
     void Start()
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        death = true;
         Debug.Log("Player dead. Reset health.");
         Destroy(gameObject);
         this.currentHealth = this.maxHealth;
