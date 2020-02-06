@@ -27,7 +27,7 @@ public class CharacterPanel : MonoBehaviour
     void UpdateHealth(int currentHealth, int maxHealth)
     {
         this.health.text = currentHealth.ToString();
-        //this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
+        this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
     }
 
     void UpdateLevel()
@@ -43,8 +43,8 @@ public class CharacterPanel : MonoBehaviour
 
     void UpdateStats()
     {    
-        playerPower.text = player.characterStats.stats[0].StatName + ": " + player.characterStats.stats[0].GetCalculatedStatValue().ToString();
-        playerDefense.text = player.characterStats.stats[1].StatName + ": " + player.characterStats.stats[1].GetCalculatedStatValue().ToString();
-        playerSpeed.text = player.characterStats.stats[2].StatName + ": " + player.characterStats.stats[2].GetCalculatedStatValue().ToString();
+        playerPower.text = "Power: " + player.characterStats.stats[0].GetCalculatedStatValue().ToString();
+        playerDefense.text = "Defense: " + ": " + player.characterStats.stats[1].GetCalculatedStatValue().ToString();
+        playerSpeed.text = "Speed: " + player.characterStats.stats[2].GetCalculatedStatValue().ToString();
     }
 }

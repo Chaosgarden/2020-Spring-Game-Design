@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     Player playerHolder;
     public GameObject restartUI;
     public GameObject victoryUI;
+    public GameObject statsUI;
 
     public delegate void PlayerHealthEventHandler(int currentHealth, int maxHealth);
     public static event PlayerHealthEventHandler OnPlayerHealthChanged;
@@ -38,6 +39,17 @@ public class UIManager : MonoBehaviour
         if (playerHolder.death != false)
         {
             restartUI.SetActive(true);
+        }
+        if (Input.GetKeyDown("tab"))
+        {
+            if (statsUI.activeSelf != false)
+            {
+                statsUI.SetActive(false);
+            }
+            else
+            {
+                statsUI.SetActive(true);
+            }
         }
     }
     public static void HealthChanged(int currentHealth, int maxHealth)

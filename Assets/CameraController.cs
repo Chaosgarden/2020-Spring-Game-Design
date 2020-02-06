@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private Transform target;
-     private Vector3 targetOffset = new Vector3(0,10,-10);
+     private Vector3 targetOffset = new Vector3(0,20,-20);
      private float movementSpeed =5f;
     void Start()
     {

@@ -14,7 +14,6 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform spawnPoint;
     public bool cleared = false;
-    public float timeBetweenWaves = 5f;
     private float countdown = 2f;
 
     public Text waveCountdownText;
@@ -28,7 +27,7 @@ public class WaveSpawner : MonoBehaviour
         {
             if (!EnemyIsAlive())
             {
-               
+                WaveCompleted();
             }
             else
             {
@@ -50,7 +49,7 @@ public class WaveSpawner : MonoBehaviour
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave());
-                countdown = timeBetweenWaves;
+
                 return;
             }
         }
@@ -74,7 +73,7 @@ public class WaveSpawner : MonoBehaviour
     {
         waveIndex++;
         state = SpawnState.COUNTING;
-        countdown = timeBetweenWaves;
+        
     }
     IEnumerator SpawnWave()
     {
