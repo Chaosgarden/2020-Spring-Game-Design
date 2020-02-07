@@ -9,15 +9,14 @@ public class WaveSpawner : MonoBehaviour
         SPAWNING, WAITING, COUNTING, STOPPING
     };
     public static int EnemiesAlive = 0;
-    public GameObject manager;
     public Wave[] waves;
     
     public Transform spawnPoint;
     public bool cleared = false;
     private float countdown = 2f;
-    private float waveTimer = 15f;
+    private float waveTimer = 5;
 
-    public Text currentText;
+    public Text waveText;
     public Text waveCountdownText;
     public SpawnState state = SpawnState.COUNTING;
     private int waveIndex = 0;
@@ -29,19 +28,28 @@ public class WaveSpawner : MonoBehaviour
         {
             if (!EnemyIsAlive())
             {
-                UIManager.Instance.WaitForWave(true);
-                waveTimer -= Time.deltaTime;
-                Debug.Log(waveTimer);
+                if (waveIndex == waves.Length - 1)
+                {
+                   
+                }
+                else
+                {
+                    waveText.text = "Wave " + (1 + waveIndex) + " begins in ";
+                    waveCountdownText.text = Mathf.RoundToInt(waveTimer).ToString();
+                    UIManager.Instance.WaitForWave(true);
+                    if (waveTimer <= 0f)
+                    {
+                        UIManager.Instance.WaitForWave(false);
+                        NextWave();
+                        waveTimer = 5f;
+                    }
+                    else
+                    {
+                        waveTimer -= Time.deltaTime;
+                        waveTimer = Mathf.Clamp(waveTimer, 0f, Mathf.Infinity);
+                    }
+                }      
             }
-        }
-        if (waveIndex == 2)
-        {
-            cleared = true;
-
-        }
-        if (waveIndex == waves.Length)
-        {
-            this.enabled = false;
         }
         if (countdown <= 0f)
         {
@@ -62,6 +70,7 @@ public class WaveSpawner : MonoBehaviour
         }
         // Debug.Log(string.Format("{0:00.00}", countdown));
     }
+    
     bool EnemyIsAlive()
     {
         if (GameObject.FindGameObjectWithTag("Enemy") == null)
@@ -73,7 +82,7 @@ public class WaveSpawner : MonoBehaviour
     public void NextWave()
     {
         waveIndex++;
-        state = SpawnState.COUNTING;     
+        state = SpawnState.COUNTING;  
     }
     IEnumerator SpawnWave()
     {
