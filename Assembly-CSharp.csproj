@@ -105,7 +105,6 @@
     <Compile Include="Assets\Libraries\Terrain\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\Libraries\Terrain\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\Libraries\Terrain\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\Scripts\BaseStat.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CharacterPanel.cs" />
@@ -119,12 +118,14 @@
     <Compile Include="Assets\Scripts\IWeapon.cs" />
     <Compile Include="Assets\Scripts\KnightController.cs" />
     <Compile Include="Assets\Scripts\LifeTracker.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Monsters\Cactus.cs" />
     <Compile Include="Assets\Scripts\Monsters\Dummy.cs" />
     <Compile Include="Assets\Scripts\NghiaScript.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerStat.cs" />
+    <Compile Include="Assets\Scripts\SettingMenu.cs" />
     <Compile Include="Assets\Scripts\SkillTree.cs" />
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\StatBonus.cs" />
@@ -133,7 +134,6 @@
     <Compile Include="Assets\Scripts\WaveSpawner.cs" />
     <Compile Include="Assets\Scripts\WeaponController.cs" />
     <Compile Include="Assets\Scripts\Weapons\Sword.cs" />
-    <Compile Include="Assets\SettingMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

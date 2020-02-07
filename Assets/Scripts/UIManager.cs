@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public GameObject restartUI;
     public GameObject victoryUI;
     public GameObject statsUI;
+    public GameObject waitUI;
+    public static UIManager Instance { get; set; }
 
     public delegate void PlayerHealthEventHandler(int currentHealth, int maxHealth);
     public static event PlayerHealthEventHandler OnPlayerHealthChanged;
@@ -17,11 +19,23 @@ public class UIManager : MonoBehaviour
     public delegate void StatsEventHandler();
     public static event StatsEventHandler OnStatsChanged;
 
+    public delegate void PlayerStateHandler();
+    public static event PlayerStateHandler OnPlayerDeath;
+
     public delegate void PlayerLevelEventHandler();
     public static event PlayerLevelEventHandler OnPlayerLevelChange;
 
-    void Awake()
+    public static bool playerState = false;
+    void Start()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
         player = GameObject.Find("Player");
         playerHolder = player.GetComponent<Player>();
     }
@@ -33,13 +47,24 @@ public class UIManager : MonoBehaviour
     {
         victoryUI.SetActive(true);
     }
+    public void Defeat()
+    {
+        restartUI.SetActive(true);
+    }
+    public void WaitForWave(bool active)
+    {
+        if (active == true)
+        {
+            waitUI.SetActive(true);
+        }
+        if (active == false)
+        {
+            waitUI.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
-        if (playerHolder.death != false)
-        {
-            restartUI.SetActive(true);
-        }
         if (Input.GetKeyDown("tab"))
         {
             if (statsUI.activeSelf != false)
@@ -52,6 +77,7 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
     public static void HealthChanged(int currentHealth, int maxHealth)
     {
         if (OnPlayerHealthChanged != null)
@@ -59,15 +85,6 @@ public class UIManager : MonoBehaviour
             OnPlayerHealthChanged(currentHealth, maxHealth);
         }
     }
-
-    public static void StatsChanged()
-    {
-        if (OnStatsChanged != null)
-        {
-            OnStatsChanged();
-        }
-    }
-
     public static void PlayerLevelChanged()
     {
         if (OnPlayerLevelChange != null)

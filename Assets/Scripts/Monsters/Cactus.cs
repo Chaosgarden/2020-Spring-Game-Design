@@ -7,46 +7,59 @@ public class Cactus : MonoBehaviour, IEnemy
 {
     public float currentHealth;
     public float maxHealth;
-    public NavMeshAgent agent;
+    private NavMeshAgent agent;
     private CharacterStats characterStats;
     //private Player player;
-    GameObject player;
-    Player playerVar;
+    GameObject playerHolder;
+    Player player;
     void Awake()
     {
+        characterStats = new CharacterStats(6, 10, 2);
+        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         currentHealth = maxHealth;
-        player = GameObject.Find("Player");
-        playerVar = player.GetComponent<Player>();
+        playerHolder = GameObject.Find("Player");
+        player = playerHolder.GetComponent<Player>();
         //player = GameObject.Find("Player");
+    }
+
+    void FixedUpdate()
+    {
+        ChasePlayer(player);
     }
 
     public void PerformAttack()
     {
-        playerVar.TakeDamage(5);
+        player.TakeDamage(1);
     }
+
     public void TakeDamage(int amount)
-    {     
+    {
         currentHealth -= amount;
         if (currentHealth <= 0)
-        {
             Die();
+    }
+
+    void ChasePlayer(Player player)
+    {
+        agent.SetDestination(player.transform.position);
+        this.player = player;
+        if (agent.remainingDistance <= agent.stoppingDistance + 5f) 
+        {
+            if (!IsInvoking("PerformAttack"))
+            {
+                InvokeRepeating("PerformAttack", .5f, 2f);
+                agent.isStopped = true;
+            }
+        }
+        else
+        {
+            agent.isStopped = false;
+            CancelInvoke("PerformAttack");
         }
     }
     void Die()
     {
         Destroy(gameObject);
     }
-    void Update()
-    {
-       
-        if (Vector3.Distance(transform.position, player.transform.position) < 2.3f)
-        {
-            PerformAttack();
-        }
-        else
-        {
-            agent.SetDestination(player.transform.position);
-        }
-       
-    }
+ 
 }

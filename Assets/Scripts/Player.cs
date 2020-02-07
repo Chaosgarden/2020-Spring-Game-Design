@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         death = true;
         Debug.Log("Player dead. Reset health.");
         this.currentHealth = this.maxHealth;
-        UIManager.HealthChanged(this.currentHealth, this.maxHealth);
+       
         Destroy(gameObject);
     }
 }

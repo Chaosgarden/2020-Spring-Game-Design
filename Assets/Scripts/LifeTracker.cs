@@ -17,7 +17,6 @@ public class LifeTracker : MonoBehaviour
         this.health.text = currentHealth.ToString();
         this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
     }
-
     // Update is called once per frame
     void Update()
     {

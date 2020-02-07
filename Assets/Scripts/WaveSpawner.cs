@@ -6,51 +6,52 @@ public class WaveSpawner : MonoBehaviour
 {
     public enum SpawnState
     {
-        SPAWNING,WAITING,COUNTING
+        SPAWNING, WAITING, COUNTING, STOPPING
     };
     public static int EnemiesAlive = 0;
     public GameObject manager;
     public Wave[] waves;
-
+    
     public Transform spawnPoint;
     public bool cleared = false;
     private float countdown = 2f;
+    private float waveTimer = 15f;
 
+    public Text currentText;
     public Text waveCountdownText;
     public SpawnState state = SpawnState.COUNTING;
     private int waveIndex = 0;
- 
+
 
     void Update()
     {
-        if(state == SpawnState.WAITING)
+        if (state == SpawnState.STOPPING)
         {
             if (!EnemyIsAlive())
             {
-                WaveCompleted();
-            }
-            else
-            {
-                return;
+                UIManager.Instance.WaitForWave(true);
+                waveTimer -= Time.deltaTime;
+                Debug.Log(waveTimer);
             }
         }
         if (waveIndex == 2)
         {
             cleared = true;
-            
+
         }
         if (waveIndex == waves.Length)
         {
             this.enabled = false;
         }
-
         if (countdown <= 0f)
         {
-            if (state != SpawnState.SPAWNING)
+            if(state != SpawnState.STOPPING)
             {
-                StartCoroutine(SpawnWave());
-
-                return;
+                if (state != SpawnState.SPAWNING)
+                {
+                    StartCoroutine(SpawnWave());
+                    return;
+                }
             }
         }
         else
@@ -59,7 +60,7 @@ public class WaveSpawner : MonoBehaviour
 
             countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         }
-       // Debug.Log(string.Format("{0:00.00}", countdown));
+        // Debug.Log(string.Format("{0:00.00}", countdown));
     }
     bool EnemyIsAlive()
     {
@@ -69,11 +70,10 @@ public class WaveSpawner : MonoBehaviour
         }
         return true;
     }
-    void WaveCompleted()
+    public void NextWave()
     {
         waveIndex++;
-        state = SpawnState.COUNTING;
-        
+        state = SpawnState.COUNTING;     
     }
     IEnumerator SpawnWave()
     {
@@ -86,8 +86,7 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f);
         }
-        waveIndex++;
-        state = SpawnState.WAITING;
+        state = SpawnState.STOPPING;
     }
 
     void SpawnEnemy(GameObject enemy)
