@@ -28,7 +28,7 @@ public class Cactus : MonoBehaviour, IEnemy
     }
 
     public void PerformAttack()
-    {
+    {       
         player.TakeDamage(1);
     }
 

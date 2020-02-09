@@ -30,7 +30,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 if (waveIndex == waves.Length - 1)
                 {
-                   
+                    UIManager.Instance.Victory();
                 }
                 else
                 {
