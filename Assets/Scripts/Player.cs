@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     {
         this.currentHealth = this.maxHealth;
         characterStats = new CharacterStats(10, 10, 10);
-        UIManager.HealthChanged(this.currentHealth, this.maxHealth);
     }
     public void TakeDamage(int amount)
     {

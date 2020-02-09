@@ -8,9 +8,15 @@ public class LifeTracker : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private Image healthFill, levelFill;
     [SerializeField] private Text health, level;
+    [SerializeField] private Text wavesText;
     void Start()
     {
         UIManager.OnPlayerHealthChanged += UpdateHealth;
+        UIManager.OnWaveChanged += UpdateWave;
+    }
+    void UpdateWave(int waves)
+    {
+        this.wavesText.text = "Enemies Alive : " + waves.ToString();
     }
     void UpdateHealth(int currentHealth, int maxHealth)
     {

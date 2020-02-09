@@ -19,8 +19,8 @@ public class UIManager : MonoBehaviour
     public delegate void StatsEventHandler();
     public static event StatsEventHandler OnStatsChanged;
 
-    public delegate void PlayerStateHandler();
-    public static event PlayerStateHandler OnPlayerDeath;
+    public delegate void WaveEventHandler(int waves);
+    public static event WaveEventHandler OnWaveChanged;
 
     public delegate void PlayerLevelEventHandler();
     public static event PlayerLevelEventHandler OnPlayerLevelChange;
@@ -90,6 +90,13 @@ public class UIManager : MonoBehaviour
         if (OnPlayerLevelChange != null)
         {
             OnPlayerLevelChange();
+        }
+    }
+    public static void WaveChanged(int waves)
+    {
+        if (OnWaveChanged != null)
+        {
+            OnWaveChanged(waves);
         }
     }
 }
