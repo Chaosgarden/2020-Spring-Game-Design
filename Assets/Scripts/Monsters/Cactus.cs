@@ -12,6 +12,8 @@ public class Cactus : MonoBehaviour, IEnemy
     //private Player player;
     GameObject playerHolder;
     Player player;
+    public HealthBar healthBar;
+    public DamagePopup damagePopup;
     void Awake()
     {
         characterStats = new CharacterStats(6, 10, 2);
@@ -20,6 +22,7 @@ public class Cactus : MonoBehaviour, IEnemy
         playerHolder = GameObject.Find("Player");
         player = playerHolder.GetComponent<Player>();
         //player = GameObject.Find("Player");
+        healthBar.SetMaxHealth((int)maxHealth);
     }
 
     void FixedUpdate()
@@ -35,8 +38,13 @@ public class Cactus : MonoBehaviour, IEnemy
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        damagePopup.Create(transform.position, amount);
+        healthBar.SetHealth((int)currentHealth);
         if (currentHealth <= 0)
+        {
             Die();
+
+        }
     }
 
     void ChasePlayer(Player player)
