@@ -46,7 +46,6 @@ public class Cactus : MonoBehaviour, IEnemy
         if (currentHealth <= 0)
         {
             Die();
-
         }
     }
 
