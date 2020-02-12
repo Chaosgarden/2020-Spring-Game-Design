@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterPanel : MonoBehaviour
 {
-    [SerializeField] private Text health, level;
+    [SerializeField] private Text health, level, statCounter;
     [SerializeField] private Image healthFill, levelFill;
     [SerializeField] private Player player;
 
@@ -15,13 +15,12 @@ public class CharacterPanel : MonoBehaviour
     public Text playerSpeed;
     private CharacterStats characterStats;
 
-
-
     void Start()
     {
         UIManager.OnPlayerHealthChanged += UpdateHealth;
+        UIManager.OnPlayerLevelChanged += UpdateLevel;
         UIManager.OnStatsChanged += UpdateStats;
-        UIManager.OnPlayerLevelChange += UpdateLevel;
+        UIManager.OnPlayerStatPointsChanged += UpdateStatCounter;
         UpdateStats();
     }
     void UpdateHealth(int currentHealth, int maxHealth)
@@ -30,9 +29,9 @@ public class CharacterPanel : MonoBehaviour
         //this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
     }
 
-    void UpdateLevel()
+    void UpdateLevel(int levels)
     {
-        //this.level.text = player.PlayerLevel.Level.ToString();
+        this.level.text = levels.ToString();
         //this.levelFill.fillAmount = (float)player.PlayerLevel.CurrentExperience / (float)player.PlayerLevel.RequiredExperience;
     }
 
@@ -40,11 +39,14 @@ public class CharacterPanel : MonoBehaviour
     {
         
     }
-
+    void UpdateStatCounter()
+    {
+        this.statCounter.text = "Stat points : " + player.statCounter.ToString();
+    }
     void UpdateStats()
     {    
         playerPower.text = "Power: " + player.characterStats.stats[0].GetCalculatedStatValue().ToString();
-        playerDefense.text = "Defense: " + ": " + player.characterStats.stats[1].GetCalculatedStatValue().ToString();
+        playerDefense.text = "Defense: " + player.characterStats.stats[1].GetCalculatedStatValue().ToString();
         playerSpeed.text = "Speed: " + player.characterStats.stats[2].GetCalculatedStatValue().ToString();
     }
 }

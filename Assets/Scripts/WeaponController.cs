@@ -7,7 +7,7 @@ public class WeaponController : MonoBehaviour
     public GameObject playerHand;
     public GameObject EquippedWeapon { get; set; }
     IWeapon equippedWeapon;
-    public CharacterStats characterStats;
+    CharacterStats characterStats;
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;

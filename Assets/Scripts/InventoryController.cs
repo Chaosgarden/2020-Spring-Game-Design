@@ -29,8 +29,7 @@ public class InventoryController : MonoBehaviour
     {   
         sword = Database.Instance.GetItem(itemSlug);
         playerItem.Add(sword);
-        EquipItem(sword);
-        
+        EquipItem(sword);        
     }
     public void SetItemDetails(Item item, Button selectedButton)
     {

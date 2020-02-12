@@ -33114,6 +33114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 1221010293}
   level: {fileID: 153736161}
+  statCounter: {fileID: 0}
   healthFill: {fileID: 0}
   levelFill: {fileID: 0}
   player: {fileID: 4778171825411331872}
@@ -33568,7 +33569,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHand: {fileID: 2089610825}
-  characterStats: {fileID: 0}
 --- !u!114 &3400709919525722685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33659,6 +33659,8 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   death: 0
+  level: 0
+  statCounter: 0
 --- !u!33 &3417108560340125705
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -33724,7 +33726,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHand: {fileID: 4699910359745652131}
-  characterStats: {fileID: 0}
 --- !u!114 &4778171825411331859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33830,7 +33831,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4778171825411331864}
   m_LocalRotation: {x: 0.034728847, y: -0.008464177, z: 0.0040010237, w: 0.999353}
-  m_LocalPosition: {x: 399.16, y: 0.26, z: 613.87}
+  m_LocalPosition: {x: 399.14, y: 2.38, z: 614.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4778171826981743345}
@@ -33907,6 +33908,8 @@ MonoBehaviour:
   currentHealth: 10
   maxHealth: 10
   death: 0
+  level: 0
+  statCounter: 0
 --- !u!1 &4778171826981743344
 GameObject:
   m_ObjectHideFlags: 0
