@@ -27,7 +27,10 @@ public class Cactus : MonoBehaviour, IEnemy
 
     void FixedUpdate()
     {
-        ChasePlayer(player);
+        if(player.death != true)
+        {
+            ChasePlayer(player);
+        }
     }
 
     public void PerformAttack()
