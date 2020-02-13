@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
-{
+{ 
     public CharacterController controller;
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -14,10 +14,12 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
 
+    public Animator anim;
     Vector3 velocity;
     Vector3 move;
     bool isGrounded;
-    void Update()
+    public int time = 0;
+    void FixedUpdate()
     {
 
         //checking state and applying corresponding variables
@@ -46,9 +48,12 @@ public class PlayerMovement : MonoBehaviour
         */
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
-        
-        HandleMovementInput();
-        HandleRotationInput();
+     
+
+            HandleMovementInput();
+            HandleRotationInput();
+
+
     }
     void HandleMovementInput()
     {

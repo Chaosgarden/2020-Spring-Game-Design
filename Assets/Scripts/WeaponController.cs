@@ -8,6 +8,7 @@ public class WeaponController : MonoBehaviour
     public GameObject EquippedWeapon { get; set; }
     IWeapon equippedWeapon;
     CharacterStats characterStats;
+    public Animator animator;
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;
@@ -25,6 +26,7 @@ public class WeaponController : MonoBehaviour
   
     public void PerformWeaponAttack()
     {
+        animator.SetTrigger("Attacking");
         equippedWeapon.PerformAttack(CalculateDamage());
     }
     private int CalculateDamage()
