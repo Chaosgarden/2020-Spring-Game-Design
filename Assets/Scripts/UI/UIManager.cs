@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,9 +23,15 @@ public class UIManager : MonoBehaviour
     public delegate void WaveEventHandler(int waves);
     public static event WaveEventHandler OnWaveChanged;
 
-    public delegate void PlayerLevelEventHandler();
-    public static event PlayerLevelEventHandler OnPlayerLevelChange;
+    public delegate void PlayerLevelEventHandler(int level);
 
+
+
+    public static event PlayerLevelEventHandler OnPlayerLevelChanged;
+
+    public delegate void PlayerEventStatCounter();
+    public static event PlayerEventStatCounter OnPlayerStatPointsChanged;
+    
     public static bool playerState = false;
     void Start()
     {
@@ -53,15 +60,21 @@ public class UIManager : MonoBehaviour
         restartUI.SetActive(true);
     }
     public void WaitForWave(bool active)
-    {
+    {     
         if (active == true)
         {
+            statsUI.SetActive(true);
             waitUI.SetActive(true);
         }
         if (active == false)
         {
+            statsUI.SetActive(false);
             waitUI.SetActive(false);
         }
+    }
+    public void LevelUp()
+    {
+        playerHolder.LevelUp();
     }
     // Update is called once per frame
     void Update()
@@ -86,11 +99,26 @@ public class UIManager : MonoBehaviour
             OnPlayerHealthChanged(currentHealth, maxHealth);
         }
     }
-    public static void PlayerLevelChanged()
+    public static void PlayerLevelChanged(int level)
     {
-        if (OnPlayerLevelChange != null)
+        if (OnPlayerLevelChanged != null)
         {
-            OnPlayerLevelChange();
+            OnPlayerLevelChanged(level);
+        }
+    }
+    public static void StatChange()
+    {
+        if (OnStatsChanged != null)
+        {
+            OnStatsChanged();
+        }
+    }
+
+    public static void PlayerStatCounter()
+    {
+        if (OnPlayerStatPointsChanged != null)
+        {
+            OnPlayerStatPointsChanged();
         }
     }
     public static void WaveChanged(int waves)

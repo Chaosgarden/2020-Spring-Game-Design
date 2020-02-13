@@ -36,7 +36,6 @@ public class BaseStat
 
     public void AddStatBonus(StatBonus statBonus)
     {
-
         this.BaseAdditives.Add(statBonus);
     }
 

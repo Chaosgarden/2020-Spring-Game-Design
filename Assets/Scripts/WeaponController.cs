@@ -10,6 +10,7 @@ public class WeaponController : MonoBehaviour
     public CharacterStats characterStats;
     public Animator anim;
     NghiaScript  movement;
+    
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;

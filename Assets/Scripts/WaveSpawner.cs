@@ -35,7 +35,7 @@ public class WaveSpawner : MonoBehaviour
                 else
                 {                   
                     waveText.text = "Wave " + (1 + waveIndex) + " begins in ";
-                    waveCountdownText.text = Mathf.RoundToInt(waveTimer).ToString();
+                    waveCountdownText.text = Mathf.RoundToInt(waveTimer).ToString();                 
                     UIManager.Instance.WaitForWave(true);
                     if (waveTimer <= 0f)
                     {
@@ -57,6 +57,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 if (state != SpawnState.SPAWNING)
                 {
+                    UIManager.Instance.LevelUp();
                     StartCoroutine(SpawnWave());
                     return;
                 }
@@ -97,7 +98,7 @@ public class WaveSpawner : MonoBehaviour
             UIManager.WaveChanged(EnemiesAlive);
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f);
-        }
+        }      
         state = SpawnState.STOPPING;
     }
 
