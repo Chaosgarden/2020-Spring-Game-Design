@@ -8,9 +8,13 @@ public class WeaponController : MonoBehaviour
     public GameObject EquippedWeapon { get; set; }
     IWeapon equippedWeapon;
     public CharacterStats characterStats;
+    public Animator anim;
+    NghiaScript  movement;
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        movement = GameObject.FindGameObjectWithTag("Player").GetComponent<NghiaScript>();
     }
     public void EquipWeapon(Item itemToEquip)
     {     
@@ -38,7 +42,22 @@ public class WeaponController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            PerformWeaponAttack();
+
+            StartCoroutine(Attacking());
+
         }
+    }
+    IEnumerator Attacking()
+    {
+        
+            
+            anim.SetInteger("condition", 2);
+            PerformWeaponAttack();
+            movement.isAttacking = true;
+            yield return new WaitForSeconds(2f);
+            movement.isAttacking = false;
+            anim.SetInteger("condition", 0);
+
+        
     }
 }

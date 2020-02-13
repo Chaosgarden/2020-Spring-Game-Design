@@ -6,26 +6,46 @@ using UnityEngine.AI;
 public class NghiaScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public NavMeshAgent agent;
-    public GameObject player;
-    float attackRange = 2f;
-    IEnemy cactus;
+    float speed = 10f;
+    public Animator anim;
+    public WeaponController wpController;
+    public bool isAttacking = false;
     void Start()
     {
-        player = GameObject.Find("Player");
+        wpController = this.GetComponent<WeaponController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (Vector3.Distance(transform.position, player.transform.position) < attackRange)
-        {
-            FindObjectOfType<Cactus>().PerformAttack();
-        }
+        HandleMovementInput();
+        HandleRotationInput();        
+    }
+    void HandleMovementInput()
+    {
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
 
-        else {
-            agent.SetDestination(player.transform.position);
+        
+            Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+        if (movement != Vector3.zero && !isAttacking)
+        {
+            transform.Translate(movement * speed * Time.deltaTime, Space.World);
+            anim.SetInteger("condition", 1);
+        }
+        else
+        {
+            anim.SetInteger("condition", 0);
+        }
+        
+    }
+    void HandleRotationInput()
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit))
+        {
+            transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
     }
 }
