@@ -22,12 +22,7 @@ public class Player : MonoBehaviour
     }
     public void LevelUp()
     {
-        if (level >= 1)
-        { }
-        else
-        {
-            statCounter++;
-        }
+        statCounter++;
         level++;
         this.currentHealth = 10;
         UIManager.HealthChanged(currentHealth,maxHealth);

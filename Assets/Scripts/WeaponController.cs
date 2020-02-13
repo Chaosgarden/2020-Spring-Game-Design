@@ -30,6 +30,7 @@ public class WeaponController : MonoBehaviour
   
     public void PerformWeaponAttack()
     {
+        anim.SetTrigger("Attacking");
         equippedWeapon.PerformAttack(CalculateDamage());
     }
     private int CalculateDamage()

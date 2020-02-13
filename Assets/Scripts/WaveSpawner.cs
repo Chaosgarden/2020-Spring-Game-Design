@@ -20,7 +20,7 @@ public class WaveSpawner : MonoBehaviour
     public Text waveCountdownText;
     public SpawnState state = SpawnState.COUNTING;
     private int waveIndex = 0;
-
+    int o=0;
 
     void Update()
     {
@@ -33,7 +33,8 @@ public class WaveSpawner : MonoBehaviour
                     UIManager.Instance.Victory();
                 }
                 else
-                {                   
+                {   
+                   
                     waveText.text = "Wave " + (1 + waveIndex) + " begins in ";
                     waveCountdownText.text = Mathf.RoundToInt(waveTimer).ToString();                 
                     UIManager.Instance.WaitForWave(true);
@@ -56,8 +57,7 @@ public class WaveSpawner : MonoBehaviour
             if(state != SpawnState.STOPPING)
             {
                 if (state != SpawnState.SPAWNING)
-                {
-                    UIManager.Instance.LevelUp();
+                {                   
                     StartCoroutine(SpawnWave());
                     return;
                 }
@@ -75,7 +75,7 @@ public class WaveSpawner : MonoBehaviour
     bool EnemyIsAlive()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        UIManager.WaveChanged(enemies.Length/2);
+        UIManager.WaveChanged(enemies.Length);
         if (GameObject.FindGameObjectWithTag("Enemy") == null)
         {
             return false;
@@ -84,6 +84,8 @@ public class WaveSpawner : MonoBehaviour
     }
     public void NextWave()
     {
+        Debug.Log(o);
+        UIManager.Instance.LevelUp();
         waveIndex++;
         state = SpawnState.COUNTING;  
     }
@@ -106,11 +108,11 @@ public class WaveSpawner : MonoBehaviour
     {
         if (spawnPoint != null)
         {
-            Instantiate(enemy, spawnPoint.position, enemy.transform.rotation);
+            
         }
         else
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(300, 460), 1, Random.Range(530, 720));
+            Vector3 spawnPosition = new Vector3(Random.Range(300, 460), 8, Random.Range(530, 720));
             Instantiate(enemy, spawnPosition, enemy.transform.rotation);
         }
     }

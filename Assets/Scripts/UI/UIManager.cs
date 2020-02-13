@@ -48,6 +48,7 @@ public class UIManager : MonoBehaviour
     }
     public void Restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Game");
     }
     public void Victory()
