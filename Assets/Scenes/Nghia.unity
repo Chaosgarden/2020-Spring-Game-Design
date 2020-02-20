@@ -1758,6 +1758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 1449709287}
   level: {fileID: 393365040}
+  statCounter: {fileID: 0}
   healthFill: {fileID: 0}
   levelFill: {fileID: 0}
   player: {fileID: 0}
@@ -1830,7 +1831,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 8a28f8e30d7680a4eb2cbfbddba42912,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 19.42
+      value: 6.11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8a28f8e30d7680a4eb2cbfbddba42912,
         type: 3}
@@ -1966,7 +1967,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHand: {fileID: 1625100246}
   characterStats: {fileID: 1199453402}
-  anim: {fileID: 1199453396}
+  animator: {fileID: 1199453396}
+  movement: {fileID: 1199453395}
 --- !u!114 &1199453399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2021,6 +2023,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb820948a9758f44982dea6b82494887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1199453403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199453394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0749b991180db7843a9f08a317d22bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStats: {fileID: 1199453402}
+  currentHealth: 0
+  maxHealth: 0
+  death: 0
+  level: 0
+  statCounter: 0
 --- !u!1 &1205465870
 GameObject:
   m_ObjectHideFlags: 0

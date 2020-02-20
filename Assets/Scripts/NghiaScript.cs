@@ -19,7 +19,8 @@ public class NghiaScript : MonoBehaviour
     void Update()
     {
         HandleMovementInput();
-        HandleRotationInput();        
+        HandleRotationInput();
+        HandleDash();
     }
     void HandleMovementInput()
     {
@@ -27,11 +28,11 @@ public class NghiaScript : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         
-            Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
-        if (movement != Vector3.zero && !isAttacking)
+        Vector3 movement = new Vector3(horizontalInput, 0, verticalInput);
+        if (movement != Vector3.zero&&!isAttacking)
         {
-            transform.Translate(movement * speed * Time.deltaTime, Space.World);
-            anim.SetInteger("condition", 1);
+                transform.Translate(movement * speed * Time.deltaTime, Space.World);
+                anim.SetInteger("condition", 1);
         }
         else
         {
@@ -46,6 +47,14 @@ public class NghiaScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
+        }
+    }
+    void HandleDash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space)&&!isAttacking)
+        {
+            float dashDistance = 10f;
+            transform.position += transform.forward * dashDistance;
         }
     }
 }

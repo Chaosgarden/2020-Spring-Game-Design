@@ -9,11 +9,12 @@ public class WeaponController : MonoBehaviour
     IWeapon equippedWeapon;
     public CharacterStats characterStats;
     public Animator animator;
-    NghiaScript movement;
+    public NghiaScript movement;
 
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;
+        movement = GetComponent<NghiaScript>();
         if(animator != null)
         {
             animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
@@ -33,10 +34,10 @@ public class WeaponController : MonoBehaviour
 
     public void PerformWeaponAttack()
     { 
-        if(animator != null)
+        /*if(animator != null)
         {
             animator.SetTrigger("Attacking");
-        }
+        }*/
         equippedWeapon.PerformAttack(CalculateDamage());
     }
     private int CalculateDamage()
@@ -60,8 +61,7 @@ public class WeaponController : MonoBehaviour
         if (animator != null)
         {
             animator.SetInteger("condition", 2);
-            movement.isAttacking = true;
-            
+            movement.isAttacking = true;            
             yield return new WaitForSeconds(2f);
             movement.isAttacking = false;
             animator.SetInteger("condition", 0);
