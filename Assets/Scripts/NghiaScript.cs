@@ -6,10 +6,12 @@ using UnityEngine.AI;
 public class NghiaScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] ParticleSystem dashParticle =null;
     float speed = 10f;
     public Animator anim;
     public WeaponController wpController;
     public bool isAttacking = false;
+    bool canDash = true;
     void Start()
     {
         wpController = this.GetComponent<WeaponController>();
@@ -53,8 +55,21 @@ public class NghiaScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space)&&!isAttacking)
         {
-            float dashDistance = 10f;
-            transform.position += transform.forward * dashDistance;
+            StartCoroutine(Dash());
         }
+    }
+    IEnumerator Dash()
+    {
+        if (canDash)
+        {
+            float dashDistance = 15f;
+            transform.position += transform.forward * dashDistance;
+
+            dashParticle.Play();
+        }
+        canDash = false;
+        yield return new WaitForSeconds(2f);
+        canDash = true;
+        
     }
 }
