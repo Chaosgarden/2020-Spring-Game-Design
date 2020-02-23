@@ -47,7 +47,7 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 494}
   m_MaxSize: {x: 14004, y: 14044}
   vertical: 0
-  controlID: 55
+  controlID: 130
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -498,9 +498,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 55}
-    m_SelectedIDs: b4510000
-    m_LastClickedID: 20916
-    m_ExpandedIDs: 00000000d22e000030310000443100009a31000026320000be3200009e330000a43300007035000072350000203600008e51000090510000
+    m_SelectedIDs: 78320000
+    m_LastClickedID: 12920
+    m_ExpandedIDs: 000000002c2f0000883100009c310000f03100007c32000014330000f0330000f6330000bc350000be3500006c360000d6510000d8510000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,7 +528,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d22e0000303100004431000026320000be3200009e330000a43300007035000072350000203600008e51000090510000
+    m_ExpandedIDs: 000000002c2f0000883100009c3100007c32000014330000f0330000f6330000bc350000be3500006c360000d6510000d8510000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -651,9 +651,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 66420000
-      m_LastClickedID: 16998
-      m_ExpandedIDs: 3acfffff76fbffff263d00004c420000c84700004a4a0000124e0000
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 7afaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -746,11 +746,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.00024775937, y: -0.9879626, z: 0.15477613, w: -0.0015001564}
     speed: 2
-    m_Value: {x: -0.00047991646, y: -0.9879454, z: 0.1547734, w: -0.0029820562}
+    m_Value: {x: 0.00024775937, y: 0.9879626, z: -0.15477613, w: 0.0015001562}
   m_Size:
-    m_Target: 7.552236
+    m_Target: 15.273417
     speed: 2
-    m_Value: 7.2270203
+    m_Value: 14.61571
   m_Ortho:
     m_Target: 0
     speed: 2
