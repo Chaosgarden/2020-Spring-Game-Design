@@ -47,7 +47,9 @@ MonoBehaviour:
   m_MinSize: {x: 683, y: 344}
   m_MaxSize: {x: 12008, y: 8044}
   vertical: 0
-  controlID: 128
+
+  controlID: 130
+
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -497,10 +499,12 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 7}
-    m_SelectedIDs: 1c400000
-    m_LastClickedID: 16412
-    m_ExpandedIDs: 000000003c3900000a3a0000983b0000ac3b00008a3c0000203d0000fc3d0000023e0000cc3f00000a5b00000c5b0000
+
+    scrollPos: {x: 0, y: 55}
+    m_SelectedIDs: 78320000
+    m_LastClickedID: 12920
+    m_ExpandedIDs: 000000002c2f0000883100009c310000f03100007c32000014330000f0330000f6330000bc350000be3500006c360000d6510000d8510000
+
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Scripts
@@ -528,7 +532,9 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003c390000983b0000ac3b00008a3c0000203d0000fc3d0000023e0000ca3f0000cc3f00007c4000000a5b00000c5b0000
+
+    m_ExpandedIDs: 000000002c2f0000883100009c3100007c32000014330000f0330000f6330000bc350000be3500006c360000d6510000d8510000
+
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -653,7 +659,9 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 9e8affffca92ffff4ec7ffff60c7ffff7ac7ffff2ec8ffff7ad4ffff10f4ffff30630000
+
+      m_ExpandedIDs: 7afaffff
+
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -746,11 +754,13 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.119594306, y: -0.7671486, z: 0.14983061, w: -0.6121784}
     speed: 2
-    m_Value: {x: -0.119592436, y: -0.76713663, z: 0.14982827, w: -0.61216885}
+
+    m_Value: {x: 0.00024775937, y: 0.9879626, z: -0.15477613, w: 0.0015001562}
   m_Size:
-    m_Target: 55.450314
+    m_Target: 15.273417
     speed: 2
-    m_Value: 55.450314
+    m_Value: 14.61571
+
   m_Ortho:
     m_Target: 0
     speed: 2
