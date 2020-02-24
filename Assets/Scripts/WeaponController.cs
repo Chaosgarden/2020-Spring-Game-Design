@@ -9,17 +9,17 @@ public class WeaponController : MonoBehaviour
     IWeapon equippedWeapon;
     public CharacterStats characterStats;
     public Animator animator;
-    public NghiaScript movement;
+    public PlayerMovement movement;
 
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;
-        movement = GetComponent<NghiaScript>();
+        movement = GetComponent<PlayerMovement>();
         if(animator != null)
         {
             animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         }
-        movement = GameObject.FindGameObjectWithTag("Player").GetComponent<NghiaScript>();
+        //movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
     public void EquipWeapon(Item itemToEquip)
     {
