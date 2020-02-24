@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: b8a0ca310442c1b47b13cd7b3008efeb
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Chest' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Sprinting Forward Roll (1)(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: Sprinting Forward Roll (1)(Clone)
+      position: {x: -0.06174757, y: -6.2251196, z: -3.0005975}
+      rotation: {x: -0.58210236, y: 0.050886385, z: 0.07056683, w: 0.8084478}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Bone
+      parentName: Armature
+      position: {x: -0.000024490357, y: 0.0041571567, z: 0.060316265}
+      rotation: {x: 0.58210236, y: -0.050886378, z: -0.07056683, w: 0.8084478}
+      scale: {x: 0.9999999, y: 1.0000002, z: 1.0000001}
+    - name: Hips.Control
+      parentName: Bone
+      position: {x: 0.000024490357, y: 0.066738784, z: -0.0047148997}
+      rotation: {x: 0.7070181, y: -0.011195869, z: 0.70701814, w: -0.011202392}
+      scale: {x: 1.0000006, y: 1.0000013, z: 0.9997114}
+    - name: Hips
+      parentName: Hips.Control
+      position: {x: 0.01963984, y: 0.006124338, z: 0.001325418}
+      rotation: {x: -0.7071069, y: -0.00025683735, z: -0.7071067, w: -0.00000008085263}
+      scale: {x: 1.0000002, y: 1.000001, z: 1.0000004}
+    - name: Waist
+      parentName: Hips
+      position: {x: -1.1550583e-12, y: 0.0142271565, z: -2.9907332e-10}
+      rotation: {x: 0.018617906, y: 0.0000034152595, z: 0.00018159857, w: 0.9998267}
+      scale: {x: 1.0000036, y: 0.99999917, z: 0.9999975}
+    - name: Chest
+      parentName: Waist
+      position: {x: -5.748291e-13, y: 0.016624013, z: 5.965834e-10}
+      rotation: {x: -0.056005575, y: -0.00000009126004, z: 0.000000015363124, w: 0.99843055}
+      scale: {x: 0.9997266, y: 0.99999565, z: 0.9999892}
+    - name: Shoulder.L
+      parentName: Chest
+      position: {x: -0.006658088, y: 0.01509755, z: 0.00071213156}
+      rotation: {x: 0.0048630824, y: -0.019203268, z: 0.5780177, w: 0.81578374}
+      scale: {x: 0.99998045, y: 1.000029, z: 0.9999906}
+    - name: UpperArm.L
+      parentName: Shoulder.L
+      position: {x: -0.000000016177072, y: 0.009231725, z: 7.4505804e-11}
+      rotation: {x: 0.14858656, y: -0.6857082, z: -0.13459674, w: -0.69972146}
+      scale: {x: 0.9999459, y: 1.0007211, z: 0.9993347}
+    - name: LowerArm.L
+      parentName: UpperArm.L
+      position: {x: 3.72529e-10, y: 0.018223673, z: -0.0000000063190235}
+      rotation: {x: -0.01779806, y: -0.0018271791, z: -0.060233206, w: -0.998024}
+      scale: {x: 1.0001799, y: 0.99982, z: 1.0000006}
+    - name: Hand.L
+      parentName: LowerArm.L
+      position: {x: -5.9604643e-10, y: 0.019631188, z: -0.000000008094939}
+      rotation: {x: 0.043970972, y: -0.0077241175, z: 0.030401489, w: 0.9985403}
+      scale: {x: 0.9999922, y: 1.0000134, z: 0.9999951}
+    - name: Neck
+      parentName: Chest
+      position: {x: -2.1543656e-13, y: 0.022695836, z: 1.442588e-10}
+      rotation: {x: 0.022331577, y: 0.000000060055086, z: 0.0000000029735026, w: 0.9997506}
+      scale: {x: 0.99971604, y: 0.9999945, z: 1}
+    - name: Head
+      parentName: Neck
+      position: {x: -7.453593e-14, y: 0.0051847766, z: -2.261595e-10}
+      rotation: {x: 0.021884253, y: 0.000000030429362, z: -0.000000010781259, w: 0.99976057}
+      scale: {x: 0.99999994, y: 1, z: 0.9999999}
+    - name: Shoulder.R
+      parentName: Chest
+      position: {x: 0.006658088, y: 0.015097428, z: 0.00071211933}
+      rotation: {x: 0.0048624384, y: 0.019203963, z: -0.5780308, w: 0.8157744}
+      scale: {x: 1.0000057, y: 1.00002, z: 0.9999753}
+    - name: UpperArm.R
+      parentName: Shoulder.R
+      position: {x: 0.000000016256235, y: 0.009231689, z: 9.685754e-10}
+      rotation: {x: 0.1485772, y: 0.6857102, z: 0.13458963, w: -0.69972277}
+      scale: {x: 0.9999687, y: 1.0007538, z: 0.99928015}
+    - name: LowerArm.R
+      parentName: UpperArm.R
+      position: {x: 7.45058e-10, y: 0.018223703, z: 0.0000000046414788}
+      rotation: {x: 0.017798467, y: -0.0018255106, z: -0.060233302, w: 0.998024}
+      scale: {x: 1.0002089, y: 0.99979025, z: 1.0000006}
+    - name: Hand.R
+      parentName: LowerArm.R
+      position: {x: -7.45058e-10, y: 0.01963121, z: 0.0000000044977058}
+      rotation: {x: 0.043971047, y: 0.0077244756, z: -0.030401653, w: 0.9985402}
+      scale: {x: 0.99999154, y: 1.0000174, z: 0.99999356}
+    - name: UpperLeg.L
+      parentName: Hips
+      position: {x: -0.0079910625, y: 0.00060584303, z: 0.000015789701}
+      rotation: {x: 0.70639706, y: -0.0100923255, z: 0.7069864, w: 0.032733504}
+      scale: {x: 0.99997544, y: 0.99997556, z: 1.0000201}
+    - name: LowerLeg.L
+      parentName: UpperLeg.L
+      position: {x: 4.749745e-10, y: 0.022535354, z: 3.352761e-10}
+      rotation: {x: 0.005879159, y: -0.9999603, z: 0.0067026494, w: 0.00008325613}
+      scale: {x: 0.9999837, y: 1.0000024, z: 1.0000156}
+    - name: Foot.L
+      parentName: LowerLeg.L
+      position: {x: 2.1420418e-10, y: 0.027909888, z: -0.0000000012759119}
+      rotation: {x: -0.47909492, y: 0.48304495, z: -0.52639276, w: -0.50994736}
+      scale: {x: 1.0000038, y: 1.0000011, z: 0.9999971}
+    - name: UpperLeg.R
+      parentName: Hips
+      position: {x: 0.008000953, y: 0.00061150437, z: 0.000015785856}
+      rotation: {x: 0.7061373, y: 0.0152928885, z: -0.70689297, w: 0.03792874}
+      scale: {x: 1.000041, y: 0.9999987, z: 1.0000148}
+    - name: LowerLeg.R
+      parentName: UpperLeg.R
+      position: {x: -3.306195e-10, y: 0.022535374, z: -1.11758706e-10}
+      rotation: {x: 0.0058793477, y: 0.9999826, z: -0.0006501673, w: 0.000036889043}
+      scale: {x: 0.9999718, y: 1.0000234, z: 1.0000073}
+    - name: Foot.R
+      parentName: LowerLeg.R
+      position: {x: 8.754432e-10, y: 0.027909925, z: -5.681068e-10}
+      rotation: {x: 0.47859964, y: 0.48255584, z: -0.5268627, w: 0.51039004}
+      scale: {x: 1.000004, y: 0.9999997, z: 0.99999666}
+    - name: Character
+      parentName: Sprinting Forward Roll (1)(Clone)
+      position: {x: -0, y: -12.417646, z: 0}
+      rotation: {x: 0.000000081460335, y: 0, z: -0, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

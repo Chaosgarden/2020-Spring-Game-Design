@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class PlayerMovement : MonoBehaviour
-{ 
+{
+    [SerializeField] ParticleSystem dashParticle;
     public CharacterController controller;
     public float speed = 12f;
     public float gravity = -9.81f;
@@ -14,8 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public float groundDistance = 0.4f;
-    float rollSpeed = 0;
-    Vector3 rollDirection;
+    
     Vector3 velocity;
     Vector3 move;
     bool isGrounded;
@@ -53,9 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         HandleMovementInput();
         HandleRotationInput();
-        HandleInputRoll();
-        HandleRoll();
-
+        HandleDash();
     }
     void HandleMovementInput()
     {
@@ -81,22 +79,25 @@ public class PlayerMovement : MonoBehaviour
             transform.LookAt(new Vector3(hit.point.x, transform.position.y, hit.point.z));
         }
     }
-    void HandleInputRoll()
+    void HandleDash()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isAttacking)
         {
-            rollSpeed = 100f;
-            rollDirection = transform.forward;
-            animator.SetInteger("condition", 3);
+            StartCoroutine(Dash());
         }
     }
-    void HandleRoll()
+    IEnumerator Dash()
     {
-        transform.position += rollDirection * rollSpeed * Time.deltaTime;
-        rollSpeed -= rollSpeed * 5f * Time.deltaTime;
-        if (rollSpeed < 5f)
+        if (canDash)
         {
-            animator.SetInteger("condition", 0);
+            float dashDistance = 10f;
+            transform.position += transform.forward * dashDistance;
+
+            dashParticle.Play();
         }
+        canDash = false;
+        yield return new WaitForSeconds(2f);
+        canDash = true;
+
     }
 }
