@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sprite.meta
 guid: 214704f19068b714a855b67722f9f9b7
+=======
+guid: 0f83f39219c870b4c9dc5c7728ae3bb4
+>>>>>>> branchStefanos:Assets/Scenes/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
