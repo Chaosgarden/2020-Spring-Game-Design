@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public bool death = false;
     public int level;
     public int statCounter;
+    public bool invulnerable;
     CharacterStats statPoints;
 
     void Start()
@@ -69,12 +70,19 @@ public class Player : MonoBehaviour
     {
         currentHealth -= amount;
         UIManager.HealthChanged(this.currentHealth, this.maxHealth);
+        
+        invulnerable = true;
+        counter();
         if (currentHealth <= 0)
         {
             Die();
         }
     }
-
+    IEnumerator counter()
+    {
+        invulnerable = false;
+        yield return new WaitForSeconds(0.5F); 
+    }
     private void Die()
     {
         death = true;

@@ -17,7 +17,7 @@ public class WeaponController : MonoBehaviour
         movement = GetComponent<PlayerMovement>();
         if(animator != null)
         {
-            animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+            //animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         }
         //movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
     }
@@ -62,7 +62,7 @@ public class WeaponController : MonoBehaviour
         {
             animator.SetInteger("condition", 2);
             movement.isAttacking = true;            
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             movement.isAttacking = false;
             animator.SetInteger("condition", 0);
         }

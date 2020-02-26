@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 411c854357b71d74f9fae051b781bdfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHand: {fileID: 597373654}
+  playerHand: {fileID: 444990387}
   characterStats: {fileID: 150394249}
   animator: {fileID: 150394255}
   movement: {fileID: 150394251}
@@ -731,6 +731,12 @@ PrefabInstance:
       objectReference: {fileID: 2141854, guid: aae542b8a65f39b49b008fa689ce9804, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90333439600300e4b8f1b4d3bf3d28a0, type: 3}
+--- !u!1 &444990387 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2853804845142156546, guid: f11422c29d5f4c34ea544df0bbe5364a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1327916847}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &453167949
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,12 +980,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &597373654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -3150061720295842502, guid: f11422c29d5f4c34ea544df0bbe5364a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1327916847}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &601397881
 GameObject:
   m_ObjectHideFlags: 0

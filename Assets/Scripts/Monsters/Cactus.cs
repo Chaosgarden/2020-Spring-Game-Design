@@ -36,6 +36,8 @@ public class Cactus : MonoBehaviour, IEnemy
     public void PerformAttack()
     {       
         player.TakeDamage(1);
+        float dashDistance = 3f;
+            player.transform.position += transform.forward * -1 * dashDistance;
     }
 
     public void TakeDamage(int amount)
@@ -55,7 +57,7 @@ public class Cactus : MonoBehaviour, IEnemy
         this.player = player;
         if (agent.remainingDistance <= agent.stoppingDistance + 5f) 
         {
-            if (!IsInvoking("PerformAttack"))
+            if (!IsInvoking("PerformAttack") && player.invulnerable != true)
             {
                 InvokeRepeating("PerformAttack", .5f, 2f);
                 agent.isStopped = true;
