@@ -134,6 +134,7 @@
     <Compile Include="Assets\Scripts\SpawnManager.cs" />
     <Compile Include="Assets\Scripts\SpriteAnimator.cs" />
     <Compile Include="Assets\Scripts\StatBonus.cs" />
+    <Compile Include="Assets\Scripts\TutorialEnd.cs" />
     <Compile Include="Assets\Scripts\UI\LifeTracker.cs" />
     <Compile Include="Assets\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Scripts\UI\WaveTimeTracker.cs" />
