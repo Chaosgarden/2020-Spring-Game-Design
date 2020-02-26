@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        statCounter = 0;
+        statCounter = 1;
         level = 0;
         this.currentHealth = this.maxHealth;
         characterStats = new CharacterStats(10, 10, 10);
@@ -88,6 +88,6 @@ public class Player : MonoBehaviour
         death = true;
         UIManager.Instance.Defeat();
         Debug.Log("Player dead. Reset health.");
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

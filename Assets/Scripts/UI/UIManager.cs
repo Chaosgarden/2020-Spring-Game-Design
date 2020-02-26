@@ -57,8 +57,8 @@ public class UIManager : MonoBehaviour
     }
     public void Defeat()
     {
-        Time.timeScale = 0;
         restartUI.SetActive(true);
+        Time.timeScale = 0;  
     }
     public void WaitForWave(bool active)
     {     

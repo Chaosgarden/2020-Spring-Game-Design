@@ -20,7 +20,6 @@ public class WaveSpawner : MonoBehaviour
     public Text waveCountdownText;
     public SpawnState state = SpawnState.COUNTING;
     private int waveIndex = 0;
-    int o=0;
 
     void Update()
     {
@@ -84,7 +83,6 @@ public class WaveSpawner : MonoBehaviour
     }
     public void NextWave()
     {
-        Debug.Log(o);
         UIManager.Instance.LevelUp();
         waveIndex++;
         state = SpawnState.COUNTING;  
