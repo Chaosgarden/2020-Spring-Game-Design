@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class SettingMenu : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -15,7 +16,10 @@ public class SettingMenu : MonoBehaviour
     }
     public void SetVolume()
     {
-        audioSrc.volume = volumeSlider.value;
-
+        audioSrc.volume = volumeSlider.value; 
+    }
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

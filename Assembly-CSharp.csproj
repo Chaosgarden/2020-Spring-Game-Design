@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CameraController.cs" />
     <Compile Include="Assets\Libraries\NavMeshComponents\Scripts\NavMeshLink.cs" />
     <Compile Include="Assets\Libraries\NavMeshComponents\Scripts\NavMeshModifier.cs" />
     <Compile Include="Assets\Libraries\NavMeshComponents\Scripts\NavMeshModifierVolume.cs" />
@@ -107,6 +106,7 @@
     <Compile Include="Assets\Libraries\Terrain\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
     <Compile Include="Assets\Scripts\BaseStat.cs" />
     <Compile Include="Assets\Scripts\Billboard.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\CharacterPanel.cs" />
     <Compile Include="Assets\Scripts\CharacterStats.cs" />
     <Compile Include="Assets\Scripts\DamagePopup.cs" />
