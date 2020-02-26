@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         //jumping gravity
         */
         velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        //controller.Move(velocity * Time.deltaTime);
      
 
         HandleMovementInput();

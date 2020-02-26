@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     {
         statCounter = 1;
         level = 0;
+        invulnerable = false;
         this.currentHealth = this.maxHealth;
         characterStats = new CharacterStats(10, 10, 10);
         UIManager.PlayerLevelChanged(level);
@@ -71,7 +72,7 @@ public class Player : MonoBehaviour
         currentHealth -= amount;
         UIManager.HealthChanged(this.currentHealth, this.maxHealth);
         
-        invulnerable = true;
+        
         counter();
         if (currentHealth <= 0)
         {
@@ -80,8 +81,9 @@ public class Player : MonoBehaviour
     }
     IEnumerator counter()
     {
+        invulnerable = true;
+        yield return new WaitForSeconds(0.5F);
         invulnerable = false;
-        yield return new WaitForSeconds(0.5F); 
     }
     private void Die()
     {

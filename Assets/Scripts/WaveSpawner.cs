@@ -20,7 +20,13 @@ public class WaveSpawner : MonoBehaviour
     public Text waveCountdownText;
     public SpawnState state = SpawnState.COUNTING;
     private int waveIndex = 0;
-
+    private void Start()
+    {
+        state = SpawnState.COUNTING;
+        waveIndex = 0;
+        countdown = 2f;
+        waveTimer = 5f;
+    }
     void Update()
     {
         if (state == SpawnState.STOPPING)
@@ -90,7 +96,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         Wave wave = waves[waveIndex];
-        
+        Debug.Log(waveIndex);
         EnemiesAlive = wave.count;
         state = SpawnState.SPAWNING;
         for (int i = 0; i < wave.count; i++)

@@ -14,6 +14,7 @@ public class Cactus : MonoBehaviour, IEnemy
     Player player;
     public HealthBar healthBar;
     public DamagePopup damagePopup;
+    bool canAttack = true;
     void Awake()
     {
         characterStats = new CharacterStats(6, 10, 2);
@@ -30,6 +31,7 @@ public class Cactus : MonoBehaviour, IEnemy
         if(player.death != true)
         {
             ChasePlayer(player);
+            FaceTarget();
         }
     }
 
@@ -37,9 +39,15 @@ public class Cactus : MonoBehaviour, IEnemy
     {       
         player.TakeDamage(1);
         float dashDistance = 3f;
-            player.transform.position += transform.forward * -1 * dashDistance;
+        player.transform.position += transform.forward * -1 * dashDistance;
+        StartCoroutine(AttackCooldown());
     }
-
+    IEnumerator AttackCooldown()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(1);
+        canAttack = true;
+    }
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -55,23 +63,30 @@ public class Cactus : MonoBehaviour, IEnemy
     {
         agent.SetDestination(player.transform.position);
         this.player = player;
-        if (agent.remainingDistance <= agent.stoppingDistance + 5f) 
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        if (distance <= agent.stoppingDistance +2f && canAttack && !player.invulnerable) 
         {
-            if (!IsInvoking("PerformAttack") && player.invulnerable != true)
+            /*if (!IsInvoking("PerformAttack") && player.invulnerable != true)
             {
                 InvokeRepeating("PerformAttack", .5f, 2f);
                 agent.isStopped = true;
-            }
+            }*/
+            PerformAttack();
         }
-        else
+        /*else
         {
             agent.isStopped = false;
             CancelInvoke("PerformAttack");
-        }
+        }*/
     }
     void Die()
     {
         Destroy(gameObject);
     }
- 
+    void FaceTarget()
+    {
+        Vector3 direction = (transform.position - player.transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+    }
 }
