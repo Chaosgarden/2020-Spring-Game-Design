@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public GameObject playerHand;
-    public GameObject EquippedWeapon { get; set; }
+    public GameObject EquippedWeapon;
     IWeapon equippedWeapon;
     public CharacterStats characterStats;
     public Animator animator;
@@ -23,13 +23,14 @@ public class WeaponController : MonoBehaviour
     }
     public void EquipWeapon(Item itemToEquip)
     {
-        EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapons/" + itemToEquip.ObjectSlug),
-            playerHand.transform.position, playerHand.transform.rotation);
+        /*EquippedWeapon = (GameObject)Instantiate(Resources.Load<GameObject>("Weapon/" + itemToEquip.ObjectSlug),
+                playerHand.transform.position, playerHand.transform.rotation, playerHand.transform);
+        */
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
-        EquippedWeapon.transform.SetParent(playerHand.transform);
+        Debug.Log(equippedWeapon);
         equippedWeapon.Stats = itemToEquip.Stats;
+        EquippedWeapon.transform.SetParent(playerHand.transform);
         characterStats.AddStatBonus(itemToEquip.Stats);
-        Debug.Log("Equipping :" + EquippedWeapon);
     }
 
     public void PerformWeaponAttack()

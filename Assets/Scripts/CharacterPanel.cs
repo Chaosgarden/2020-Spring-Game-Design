@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class CharacterPanel : MonoBehaviour
 {
     [SerializeField] private Text health, level, statCounter;
-    [SerializeField] private Image healthFill, levelFill;
     [SerializeField] private Player player;
 
     // Stats
@@ -17,21 +16,37 @@ public class CharacterPanel : MonoBehaviour
 
     void Start()
     {
+        Init();
+    }
+    void Init()
+    {
         UIManager.OnPlayerHealthChanged += UpdateHealth;
         UIManager.OnPlayerLevelChanged += UpdateLevel;
         UIManager.OnStatsChanged += UpdateStats;
         UIManager.OnPlayerStatPointsChanged += UpdateStatCounter;
         UpdateStats();
     }
+
+    void OnDestroy()
+    {
+        UIManager.OnPlayerHealthChanged -= UpdateHealth;
+        UIManager.OnPlayerLevelChanged -= UpdateLevel;
+        UIManager.OnStatsChanged -= UpdateStats;
+        UIManager.OnPlayerStatPointsChanged -= UpdateStatCounter;
+    }
+    void OnLevelWasLoaded(int level)
+    {
+        Init();
+    }
     void UpdateHealth(int currentHealth, int maxHealth)
     {
-        this.health.text = currentHealth.ToString();
+        health.text = currentHealth.ToString();
         //this.healthFill.fillAmount = (float)currentHealth / (float)maxHealth;
     }
 
     void UpdateLevel(int levels)
     {
-        this.level.text = levels.ToString();
+        level.text = levels.ToString();
         //this.levelFill.fillAmount = (float)player.PlayerLevel.CurrentExperience / (float)player.PlayerLevel.RequiredExperience;
     }
 
@@ -41,7 +56,7 @@ public class CharacterPanel : MonoBehaviour
     }
     void UpdateStatCounter()
     {
-        this.statCounter.text = "Stat points : " + player.statCounter.ToString();
+        statCounter.text = "Stat points : " + player.statCounter.ToString();
     }
     void UpdateStats()
     {    

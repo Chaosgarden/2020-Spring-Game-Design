@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -18,14 +19,19 @@ public class WaveSpawner : MonoBehaviour
 
     public Text waveText;
     public Text waveCountdownText;
-    public SpawnState state = SpawnState.COUNTING;
+    public SpawnState state;
     private int waveIndex = 0;
-    private void Start()
+    void Start()
     {
         state = SpawnState.COUNTING;
         waveIndex = 0;
         countdown = 2f;
         waveTimer = 5f;
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        waveIndex = 0;
+        state = SpawnState.COUNTING;
     }
     void Update()
     {
@@ -96,7 +102,7 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         Wave wave = waves[waveIndex];
-        Debug.Log(waveIndex);
+        Debug.Log("Wave is :"+ waveIndex);
         EnemiesAlive = wave.count;
         state = SpawnState.SPAWNING;
         for (int i = 0; i < wave.count; i++)

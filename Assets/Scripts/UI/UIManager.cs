@@ -24,9 +24,6 @@ public class UIManager : MonoBehaviour
     public static event WaveEventHandler OnWaveChanged;
 
     public delegate void PlayerLevelEventHandler(int level);
-
-
-
     public static event PlayerLevelEventHandler OnPlayerLevelChanged;
 
     public delegate void PlayerEventStatCounter();
@@ -48,6 +45,10 @@ public class UIManager : MonoBehaviour
     }
     public void Restart()
     {
+        foreach (GameObject o in UnityEngine.Object.FindObjectsOfType<GameObject>())
+        {
+            Destroy(o);
+        }
         Time.timeScale = 1;
         SceneManager.LoadScene("Game");
     }
