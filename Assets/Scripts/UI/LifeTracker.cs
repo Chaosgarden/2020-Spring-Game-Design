@@ -11,18 +11,14 @@ public class LifeTracker : MonoBehaviour
         public Text wavesText;
     void Start()
     {
-        Init();
-    }
-    void OnLevelWasLoaded()
-    {
-        Init();
+        Inits();   
     }
     void OnDestroy()
     {
         UIManager.OnPlayerHealthChanged -= UpdateHealth;
         UIManager.OnWaveChanged -= UpdateWave;
     }
-    void Init()
+    void Inits()
     {
         UIManager.OnPlayerHealthChanged += UpdateHealth;
         UIManager.OnWaveChanged += UpdateWave;
