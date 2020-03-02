@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     public CharacterStats characterStats;
     public int currentHealth;
-    public int maxHealth;
+    public int maxHealth ;
     public bool death = false;
     public int level;
     public int statCounter;
@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     {
         statCounter++;
         level++;
-        this.currentHealth = 10;
         UIManager.HealthChanged(currentHealth,maxHealth);
         UIManager.PlayerLevelChanged(level);
         UIManager.PlayerStatCounter();

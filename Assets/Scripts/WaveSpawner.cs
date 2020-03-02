@@ -28,10 +28,19 @@ public class WaveSpawner : MonoBehaviour
         countdown = 2f;
         waveTimer = 5f;
     }
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         waveIndex = 0;
         state = SpawnState.COUNTING;
+        countdown = 2f;
+        waveTimer = 5f;
+    }
+    public void Restart()
+    {
+        waveIndex = 0;
+        state = SpawnState.COUNTING;
+        countdown = 2f;
+        waveTimer = 5f;
     }
     void Update()
     {
