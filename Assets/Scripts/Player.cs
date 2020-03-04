@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         
         if (statCounter > 0)
         {
-            statPoints = new CharacterStats(0, 5, 0);
+            statPoints = new CharacterStats(0, 2, 0);
             characterStats.AddStatBonus(statPoints.stats);
             UIManager.StatChange();
             playerMovement.updateStats();
@@ -72,9 +72,7 @@ public class Player : MonoBehaviour
     }
     public void TakeDamage(int amount)
     {
-        Debug.Log(amount);
         amount = amount-characterStats.GetStat(BaseStat.BaseStatType.Toughness).GetCalculatedStatValue();
-        Debug.Log(amount);
         currentHealth -= amount;
         UIManager.HealthChanged(this.currentHealth, this.maxHealth);
         counter();
