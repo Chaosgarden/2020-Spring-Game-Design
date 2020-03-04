@@ -1413,7 +1413,7 @@ MeshRenderer:
   m_GameObject: {fileID: 6754760230851533975}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1486,11 +1486,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284781e5baa18f7439f9bf3f5e6622f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 20
-  maxHealth: 20
+  currentHealth: 50
+  maxHealth: 50
   healthBar: {fileID: 2576587479703506122}
   damagePopup: {fileID: 6916209916508090985, guid: 57d3c177564e7614586e75b0b36120b8,
     type: 3}
+  strength: 25
 --- !u!195 &6831563326466201670
 NavMeshAgent:
   m_ObjectHideFlags: 0

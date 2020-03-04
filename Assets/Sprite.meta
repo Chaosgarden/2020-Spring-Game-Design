@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Sprite.meta
 guid: 9bef026ef411a64468f9e33a25d5c577
+=======
+guid: 998e9d432e3690048bfa3462caa57954
+>>>>>>> 61b5d8892b41f6591fc3c00b0d55069123789927:Assets/Images.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

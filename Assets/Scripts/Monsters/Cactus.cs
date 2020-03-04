@@ -15,9 +15,10 @@ public class Cactus : MonoBehaviour, IEnemy
     public HealthBar healthBar;
     public DamagePopup damagePopup;
     bool canAttack = true;
+    public int strength=35;
     void Awake()
     {
-        characterStats = new CharacterStats(6, 10, 2);
+        characterStats = new CharacterStats(strength, 10, 2);
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         currentHealth = maxHealth;
         playerHolder = GameObject.Find("Player");
@@ -37,7 +38,7 @@ public class Cactus : MonoBehaviour, IEnemy
 
     public void PerformAttack()
     {       
-        player.TakeDamage(1);
+        player.TakeDamage(characterStats.GetStat(BaseStat.BaseStatType.Power).GetCalculatedStatValue());
         float dashDistance = 3f;
         player.transform.position += transform.forward * -1 * dashDistance;
         StartCoroutine(AttackCooldown());
@@ -53,6 +54,9 @@ public class Cactus : MonoBehaviour, IEnemy
         currentHealth -= amount;
         damagePopup.Create(transform.position, amount);
         healthBar.SetHealth((int)currentHealth);
+
+        float dashDistance = 10f;
+        gameObject.transform.position -= transform.forward * -1 * dashDistance;
         if (currentHealth <= 0)
         {
             Die();
