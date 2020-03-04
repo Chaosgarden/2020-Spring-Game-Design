@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public bool death = false;
     public int level;
     public int statCounter;
-    public bool invulnerable;
+    public bool invulnerable = false;
     CharacterStats statPoints;
     PlayerMovement playerMovement;
     void Awake()

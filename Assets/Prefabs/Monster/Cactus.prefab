@@ -420,8 +420,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 284781e5baa18f7439f9bf3f5e6622f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 100
-  maxHealth: 100
+  currentHealth: 75
+  maxHealth: 75
   healthBar: {fileID: 7184904976266289177}
   damagePopup: {fileID: 6916209916508090985, guid: 57d3c177564e7614586e75b0b36120b8,
     type: 3}

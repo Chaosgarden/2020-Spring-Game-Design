@@ -10,11 +10,12 @@ public class WeaponController : MonoBehaviour
     public CharacterStats characterStats;
     public Animator animator;
     public PlayerMovement movement;
-
+    private BoxCollider box;
     void Start()
     {
         characterStats = GetComponent<Player>().characterStats;
         movement = GetComponent<PlayerMovement>();
+
         if(animator != null)
         {
             //animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
@@ -27,6 +28,7 @@ public class WeaponController : MonoBehaviour
                 playerHand.transform.position, playerHand.transform.rotation, playerHand.transform);
         */
         equippedWeapon = EquippedWeapon.GetComponent<IWeapon>();
+        box = EquippedWeapon.GetComponent<BoxCollider>();
         Debug.Log(equippedWeapon);
         equippedWeapon.Stats = itemToEquip.Stats;
         EquippedWeapon.transform.SetParent(playerHand.transform);
@@ -52,6 +54,7 @@ public class WeaponController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            box.enabled = true;
             StartCoroutine(Attacking());
 
         }
@@ -65,6 +68,7 @@ public class WeaponController : MonoBehaviour
             movement.isAttacking = true;            
             yield return new WaitForSeconds(1f);
             movement.isAttacking = false;
+            box.enabled = false;
             animator.SetInteger("condition", 0);
         }
     }

@@ -54,6 +54,9 @@ public class Cactus : MonoBehaviour, IEnemy
         currentHealth -= amount;
         damagePopup.Create(transform.position, amount);
         healthBar.SetHealth((int)currentHealth);
+
+        float dashDistance = 10f;
+        gameObject.transform.position -= transform.forward * -1 * dashDistance;
         if (currentHealth <= 0)
         {
             Die();
