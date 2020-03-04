@@ -19,9 +19,10 @@ public class Sword : MonoBehaviour, IWeapon
     }
     void OnTriggerEnter(Collider col)
     {
+        Debug.Log("Enemy Taking Damage: " + gameObject.name);
         if (col.tag == "Enemy")
         {
-            Debug.Log("EnemyTaking Damage");
+            Debug.Log("Enemy Taking Damage: " + col);
             col.GetComponent<IEnemy>().TakeDamage(CurrentDamage);
         }
     }

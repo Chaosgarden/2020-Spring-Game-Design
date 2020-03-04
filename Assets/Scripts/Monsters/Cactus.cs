@@ -90,7 +90,7 @@ public class Cactus : MonoBehaviour, IEnemy
     void FaceTarget()
     {
         Vector3 direction = (transform.position - player.transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z*-1));
         transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
     }
 }
