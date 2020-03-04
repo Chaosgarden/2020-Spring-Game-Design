@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4366756, g: 0.48427194, b: 0.5645252, a: 1}
+  m_IndirectSpecularColor: {r: 0.43667546, g: 0.48427135, b: 0.5645225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6941,8 +6941,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterStats: {fileID: 150394249}
-  currentHealth: 10
-  maxHealth: 10
+  currentHealth: 100
+  maxHealth: 100
   death: 0
   level: 0
   statCounter: 0
@@ -66372,7 +66372,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f11422c29d5f4c34ea544df0bbe5364a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 398.1637
+      value: 377.73
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f11422c29d5f4c34ea544df0bbe5364a,
         type: 3}
@@ -66382,7 +66382,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f11422c29d5f4c34ea544df0bbe5364a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 626.47
+      value: 590.96
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f11422c29d5f4c34ea544df0bbe5364a,
         type: 3}
@@ -87836,17 +87836,17 @@ PrefabInstance:
     - target: {fileID: 5197438248112698710, guid: e626f534ebe66444f9a5c653bd7fc2dc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5197438248112698710, guid: e626f534ebe66444f9a5c653bd7fc2dc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 5197438248112698710, guid: e626f534ebe66444f9a5c653bd7fc2dc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 9113697213470459717, guid: e626f534ebe66444f9a5c653bd7fc2dc,
         type: 3}
@@ -97679,7 +97679,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2019941660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105394,6 +105394,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7299548786406468963, guid: 87857d182d5bdaf40947e43c6f879c9a,
+        type: 3}
+      propertyPath: m_Text
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7299548786767204476, guid: 87857d182d5bdaf40947e43c6f879c9a,
         type: 3}

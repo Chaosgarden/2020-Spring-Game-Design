@@ -12,14 +12,15 @@ public class Player : MonoBehaviour
     public int statCounter;
     public bool invulnerable;
     CharacterStats statPoints;
-
-    void Start()
+    PlayerMovement playerMovement;
+    void Awake()
     {
         statCounter = 1;
         level = 0;
         invulnerable = false;
         this.currentHealth = this.maxHealth;
         characterStats = new CharacterStats(10, 10, 10);
+        playerMovement = GetComponent<PlayerMovement>();
         UIManager.PlayerLevelChanged(level);
     }
     public void LevelUp()
@@ -34,9 +35,10 @@ public class Player : MonoBehaviour
     {
         if(statCounter > 0)
         {
-            statPoints = new CharacterStats(5, 0, 0);
+            statPoints = new CharacterStats(10, 0, 0);
             characterStats.AddStatBonus(statPoints.stats);
             UIManager.StatChange();
+            playerMovement.updateStats();
             statCounter--;
             UIManager.PlayerStatCounter();
 
@@ -47,9 +49,10 @@ public class Player : MonoBehaviour
         
         if (statCounter > 0)
         {
-            statPoints = new CharacterStats(0, 1, 0);
+            statPoints = new CharacterStats(0, 5, 0);
             characterStats.AddStatBonus(statPoints.stats);
             UIManager.StatChange();
+            playerMovement.updateStats();
             statCounter--;
             UIManager.PlayerStatCounter();
 
@@ -59,19 +62,21 @@ public class Player : MonoBehaviour
     {
         if (statCounter > 0)
         {
-            statPoints = new CharacterStats(0, 0, 1);
+            statPoints = new CharacterStats(0, 0, 5);
             characterStats.AddStatBonus(statPoints.stats);
             UIManager.StatChange();
+            playerMovement.updateStats();
             statCounter--;
             UIManager.PlayerStatCounter();
         }
     }
     public void TakeDamage(int amount)
     {
+        Debug.Log(amount);
+        amount = amount-characterStats.GetStat(BaseStat.BaseStatType.Toughness).GetCalculatedStatValue();
+        Debug.Log(amount);
         currentHealth -= amount;
         UIManager.HealthChanged(this.currentHealth, this.maxHealth);
-        
-        
         counter();
         if (currentHealth <= 0)
         {
@@ -84,7 +89,7 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.5F);
         invulnerable = false;
     }
-    private void Die()
+    public void Die()
     {
         death = true;
         UIManager.Instance.Defeat();

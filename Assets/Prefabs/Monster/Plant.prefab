@@ -1413,7 +1413,7 @@ MeshRenderer:
   m_GameObject: {fileID: 6754760230851533975}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -1491,6 +1491,7 @@ MonoBehaviour:
   healthBar: {fileID: 2576587479703506122}
   damagePopup: {fileID: 6916209916508090985, guid: 57d3c177564e7614586e75b0b36120b8,
     type: 3}
+  strength: 25
 --- !u!195 &6831563326466201670
 NavMeshAgent:
   m_ObjectHideFlags: 0
